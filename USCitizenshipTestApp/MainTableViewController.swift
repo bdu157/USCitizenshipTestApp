@@ -22,7 +22,7 @@ class MainTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.modelViewController.imgUrlArray.count
+        return self.modelViewController.questions.count
     }
 
   
@@ -75,15 +75,15 @@ class MainTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func loadImage(for cell: UITableViewCell, indexPath: IndexPath) {
-        let imageUrl = self.modelViewController.imgUrlArray[indexPath.row]
+    private func loadImage(for cell: UITableViewCell, indexPath: IndexPath) {
+        let question = self.modelViewController.questions[indexPath.row]
         
-        self.modelViewController.fetchImages(imgUrlString: imageUrl) { (result) in
+        self.modelViewController.fetchImages(imgUrlString: question.url) { (result) in
             if let result = try? result.get() {
                 let image = UIImage(data: result)
                 DispatchQueue.main.async {
                     cell.imageView?.image = image
-                    cell.textLabel?.text = "\(result)"
+                    cell.textLabel?.text = question.question
                 }
             }
         }

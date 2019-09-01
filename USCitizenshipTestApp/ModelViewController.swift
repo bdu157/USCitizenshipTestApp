@@ -17,19 +17,19 @@ enum NetworkError: Error {
 class ModelViewController {
     
     init() {
-        self.imageSetUp()
+        self.loadData()
     }
     
-    var imgURL = "https://www.dongwoopae.com/resources/img/"
-
-    var imgUrlArray = [String]()
-    
-    func imageSetUp() {
-    for i in 1..<6 {
-        let imgURLs = imgURL + "\(i).jpg"
-        imgUrlArray.append(imgURLs)
-        }
-    }
+//    var imgURL = "https://www.dongwoopae.com/resources/img/"
+//
+//    var imgUrlArray = [String]()
+//
+//    func imageSetUp() {
+//    for i in 1..<6 {
+//        let imgURLs = imgURL + "\(i).jpg"
+//        imgUrlArray.append(imgURLs)
+//        }
+//    }
     
     func fetchImages(imgUrlString: String, completion:@escaping (Result<Data, NetworkError>)-> Void) {
         
@@ -52,5 +52,21 @@ class ModelViewController {
             print(data)
             completion(.success(data))
         }.resume()
+    }
+    
+    
+    var questions: [Question] = []
+    
+    let jsonUrl = Bundle.main.url(forResource: "questions", withExtension: "json")
+    
+    func loadData() {
+        do {
+            let jsonData = try Data(contentsOf: jsonUrl!)
+            let questionss = try JSONDecoder().decode([Question].self, from: jsonData)
+            self.questions = questionss
+        } catch {
+            NSLog("no data being decoded")
+            return
+        }
     }
 }
