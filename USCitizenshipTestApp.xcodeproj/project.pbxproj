@@ -13,6 +13,8 @@
 		0B34940F231BABA200861CFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B34940D231BABA200861CFD /* LaunchScreen.storyboard */; };
 		0B349417231BACD800861CFD /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B349416231BACD800861CFD /* MainTableViewController.swift */; };
 		0B349419231BAD8500861CFD /* ModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B349418231BAD8500861CFD /* ModelViewController.swift */; };
+		0BAB0757231C25DF002983F8 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BAB0756231C25DF002983F8 /* questions.json */; };
+		0BAB0759231C2610002983F8 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAB0758231C2610002983F8 /* Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		0B349410231BABA200861CFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B349416231BACD800861CFD /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		0B349418231BAD8500861CFD /* ModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewController.swift; sourceTree = "<group>"; };
+		0BAB0756231C25DF002983F8 /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
+		0BAB0758231C2610002983F8 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,7 @@
 			isa = PBXGroup;
 			children = (
 				0B349403231BABA000861CFD /* USCitizenshipTestApp */,
+				0BAB0755231C25BB002983F8 /* Resources */,
 				0B349402231BABA000861CFD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,8 +68,17 @@
 				0B349410231BABA200861CFD /* Info.plist */,
 				0B349416231BACD800861CFD /* MainTableViewController.swift */,
 				0B349418231BAD8500861CFD /* ModelViewController.swift */,
+				0BAB0758231C2610002983F8 /* Question.swift */,
 			);
 			path = USCitizenshipTestApp;
+			sourceTree = "<group>";
+		};
+		0BAB0755231C25BB002983F8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0BAB0756231C25DF002983F8 /* questions.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +142,7 @@
 				0B34940F231BABA200861CFD /* LaunchScreen.storyboard in Resources */,
 				0B34940C231BABA200861CFD /* Assets.xcassets in Resources */,
 				0B34940A231BABA000861CFD /* Main.storyboard in Resources */,
+				0BAB0757231C25DF002983F8 /* questions.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B349417231BACD800861CFD /* MainTableViewController.swift in Sources */,
+				0BAB0759231C2610002983F8 /* Question.swift in Sources */,
 				0B349419231BAD8500861CFD /* ModelViewController.swift in Sources */,
 				0B349405231BABA000861CFD /* AppDelegate.swift in Sources */,
 			);
