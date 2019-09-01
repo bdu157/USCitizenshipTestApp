@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		0B349405231BABA000861CFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B349404231BABA000861CFD /* AppDelegate.swift */; };
-		0B349407231BABA000861CFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B349406231BABA000861CFD /* ViewController.swift */; };
 		0B34940A231BABA000861CFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B349408231BABA000861CFD /* Main.storyboard */; };
 		0B34940C231BABA200861CFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B34940B231BABA200861CFD /* Assets.xcassets */; };
 		0B34940F231BABA200861CFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B34940D231BABA200861CFD /* LaunchScreen.storyboard */; };
+		0B349417231BACD800861CFD /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B349416231BACD800861CFD /* MainTableViewController.swift */; };
+		0B349419231BAD8500861CFD /* ModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B349418231BAD8500861CFD /* ModelViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0B349401231BABA000861CFD /* USCitizenshipTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = USCitizenshipTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B349404231BABA000861CFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0B349406231BABA000861CFD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0B349409231BABA000861CFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0B34940B231BABA200861CFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B34940E231BABA200861CFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B349410231BABA200861CFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B349416231BACD800861CFD /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		0B349418231BAD8500861CFD /* ModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				0B349404231BABA000861CFD /* AppDelegate.swift */,
-				0B349406231BABA000861CFD /* ViewController.swift */,
 				0B349408231BABA000861CFD /* Main.storyboard */,
 				0B34940B231BABA200861CFD /* Assets.xcassets */,
 				0B34940D231BABA200861CFD /* LaunchScreen.storyboard */,
 				0B349410231BABA200861CFD /* Info.plist */,
+				0B349416231BACD800861CFD /* MainTableViewController.swift */,
+				0B349418231BAD8500861CFD /* ModelViewController.swift */,
 			);
 			path = USCitizenshipTestApp;
 			sourceTree = "<group>";
@@ -135,7 +138,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B349407231BABA000861CFD /* ViewController.swift in Sources */,
+				0B349417231BACD800861CFD /* MainTableViewController.swift in Sources */,
+				0B349419231BAD8500861CFD /* ModelViewController.swift in Sources */,
 				0B349405231BABA000861CFD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
