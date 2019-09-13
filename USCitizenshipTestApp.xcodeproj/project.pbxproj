@@ -13,6 +13,7 @@
 		0B34940F231BABA200861CFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B34940D231BABA200861CFD /* LaunchScreen.storyboard */; };
 		0B349419231BAD8500861CFD /* ModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B349418231BAD8500861CFD /* ModelViewController.swift */; };
 		0B663F30232B4D9F006643C1 /* Questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B663F2F232B4D9F006643C1 /* Questions.plist */; };
+		0B663F33232BB524006643C1 /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B663F32232BB524006643C1 /* PinterestLayout.swift */; };
 		0B9595F32322B2B100F8CFC9 /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9595F22322B2B100F8CFC9 /* MainCollectionViewController.swift */; };
 		0B9595F52322B2CA00F8CFC9 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9595F42322B2CA00F8CFC9 /* MainCollectionViewCell.swift */; };
 		0BAB0757231C25DF002983F8 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BAB0756231C25DF002983F8 /* questions.json */; };
@@ -28,6 +29,7 @@
 		0B349410231BABA200861CFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B349418231BAD8500861CFD /* ModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewController.swift; sourceTree = "<group>"; };
 		0B663F2F232B4D9F006643C1 /* Questions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Questions.plist; sourceTree = "<group>"; };
+		0B663F32232BB524006643C1 /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		0B9595F22322B2B100F8CFC9 /* MainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
 		0B9595F42322B2CA00F8CFC9 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		0BAB0756231C25DF002983F8 /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				0B9595F22322B2B100F8CFC9 /* MainCollectionViewController.swift */,
 				0B9595F42322B2CA00F8CFC9 /* MainCollectionViewCell.swift */,
 				0B349418231BAD8500861CFD /* ModelViewController.swift */,
+				0B663F31232BB508006643C1 /* Layout */,
 				0B663F2B232B41ED006643C1 /* Models */,
 				0B663F2A232B41C2006643C1 /* Storyboards */,
 				0B663F28232B41AE006643C1 /* Assets */,
@@ -109,6 +112,14 @@
 				0BAB0758231C2610002983F8 /* Question.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0B663F31232BB508006643C1 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				0B663F32232BB524006643C1 /* PinterestLayout.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		0BAB0755231C25BB002983F8 /* Resources */ = {
@@ -192,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B663F33232BB524006643C1 /* PinterestLayout.swift in Sources */,
 				0B9595F52322B2CA00F8CFC9 /* MainCollectionViewCell.swift in Sources */,
 				0B9595F32322B2B100F8CFC9 /* MainCollectionViewController.swift in Sources */,
 				0BAB0759231C2610002983F8 /* Question.swift in Sources */,
