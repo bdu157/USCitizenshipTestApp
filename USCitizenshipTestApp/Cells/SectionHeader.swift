@@ -15,8 +15,8 @@ class SectionHeader: UICollectionReusableView {
     
     var section: Section! {
         didSet {
-            titleLabel?.text = "Studying..."
-            countLabel?.text = "\(section.count)"
+            titleLabel?.text = "Studying..."   //add animation ......
+            countLabel?.text = "\(section.count)/100"
         }
     }
     
