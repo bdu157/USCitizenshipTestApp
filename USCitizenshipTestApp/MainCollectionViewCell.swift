@@ -13,7 +13,6 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var questionLabel: UILabel!
     
-    let modelViewController = ModelViewController()
     var question: Question? {
         didSet {
             self.updateViews()
@@ -21,19 +20,9 @@ class MainCollectionViewCell: UICollectionViewCell {
     }
     
     private func updateViews() {
-        guard let question = question else {return}
-        
-        self.questionLabel.text = question.question
-        
-        self.modelViewController.fetchImages(imgUrlString: question.url) { (result) in
-            if let result = try? result.get() {
-                let image = UIImage(data: result)
-                
-                DispatchQueue.main.async {
-                    self.imageView.image = image
-                }
-            }
+        if let question = question {
+            self.imageView?.image = question.questionPhoto
+            self.questionLabel?.text = question.answer
         }
     }
-
 }

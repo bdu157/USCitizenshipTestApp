@@ -14,7 +14,6 @@ class MainCollectionViewController: UICollectionViewController {
     
     let modelViewController = ModelViewController()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -34,12 +33,12 @@ class MainCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return self.modelViewController.questions.count
+        return self.modelViewController.allQuestions.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MainCollectionViewCell
-        let question = self.modelViewController.questions[indexPath.item]
+        let question = self.modelViewController.allQuestions[indexPath.item]
         cell.question = question
         return cell
     }

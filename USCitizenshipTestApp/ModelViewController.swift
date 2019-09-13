@@ -9,64 +9,21 @@
 import Foundation
 import UIKit
 
-enum NetworkError: Error {
-    case otherError
-    case noData
-}
-
 class ModelViewController {
     
-    init() {
-        self.loadData()
-    }
-    
-//    var imgURL = "https://www.dongwoopae.com/resources/img/"
-//
-//    var imgUrlArray = [String]()
-//
-//    func imageSetUp() {
-//    for i in 1..<6 {
-//        let imgURLs = imgURL + "\(i).jpg"
-//        imgUrlArray.append(imgURLs)
-//        }
-//    }
-    
-    func fetchImages(imgUrlString: String, completion:@escaping (Result<Data, NetworkError>)-> Void) {
+    var allQuestions: [Question] {
         
-        let imageUrl = URL(string: imgUrlString)!
+        var questions: [Question] = []
         
-        var request = URLRequest(url: imageUrl)
-        request.httpMethod = "GET"
+        guard let URL = Bundle.main.url(forResource: "Questions", withExtension: "plist"),
+            let QuestionsFromPlist = NSArray(contentsOf: URL) as? [[String: String]] else { return questions }
         
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
-            if let _ = error {
-                completion(.failure(.otherError))
-                return
+        for dictionary in QuestionsFromPlist {
+            if let question = Question(dictionary: dictionary) {
+                questions.append(question)
             }
-            
-            guard let data = data else {
-                completion(.failure(.noData))
-                return
-            }
-            
-            print(data)
-            completion(.success(data))
-        }.resume()
-    }
-    
-    
-    var questions: [Question] = []
-    
-    let jsonUrl = Bundle.main.url(forResource: "questions", withExtension: "json")
-    
-    func loadData() {
-        do {
-            let jsonData = try Data(contentsOf: jsonUrl!)
-            let questionss = try JSONDecoder().decode([Question].self, from: jsonData)
-            self.questions = questionss
-        } catch {
-            NSLog("no data being decoded")
-            return
         }
+        return questions
     }
+    
 }
