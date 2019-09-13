@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jyE-29-g2Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z2X-4D-j6Q">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,65 +18,58 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CI3-y2-mVU">
-                            <size key="itemSize" width="162" height="140"/>
+                            <size key="itemSize" width="177" height="177"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="uM4-Ef-Dpw" customClass="MainCollectionViewCell" customModule="USCitizenshipTestApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="20" width="162" height="140"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="Cell" id="uM4-Ef-Dpw" userLabel="MainCollectionViewCell" customClass="MainCollectionViewCell" customModule="USCitizenshipTestApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="177" height="177"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="162" height="140"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="177" height="177"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6sT-tb-IB4">
-                                            <rect key="frame" x="5" y="5" width="152" height="130"/>
-                                        </imageView>
+                                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="HfF-X5-jNl">
+                                            <rect key="frame" x="0.0" y="0.0" width="177" height="177"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFu-eo-YU4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="177"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y0c-Mk-wbg">
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="177"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="Y0c-Mk-wbg" secondAttribute="bottom" id="4Da-2I-JNk"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Y0c-Mk-wbg" secondAttribute="trailing" id="FNd-2j-C2R"/>
+                                                        <constraint firstItem="Y0c-Mk-wbg" firstAttribute="top" secondItem="QFu-eo-YU4" secondAttribute="top" id="R6Z-Hu-Caq"/>
+                                                        <constraint firstItem="Y0c-Mk-wbg" firstAttribute="leading" secondItem="QFu-eo-YU4" secondAttribute="leading" id="ghA-R4-9lY"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="QFu-eo-YU4" secondAttribute="trailing" id="B0V-i6-fbR"/>
+                                                <constraint firstItem="QFu-eo-YU4" firstAttribute="leading" secondItem="HfF-X5-jNl" secondAttribute="leading" id="GdL-t8-Vbb"/>
+                                                <constraint firstItem="QFu-eo-YU4" firstAttribute="top" secondItem="HfF-X5-jNl" secondAttribute="top" id="bUz-pr-k2Y"/>
+                                                <constraint firstAttribute="bottom" secondItem="QFu-eo-YU4" secondAttribute="bottom" id="tgP-k5-G3z"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="6sT-tb-IB4" secondAttribute="trailing" constant="5" id="EEf-on-dkv"/>
-                                    <constraint firstAttribute="bottom" secondItem="6sT-tb-IB4" secondAttribute="bottom" constant="5" id="Gxs-Xf-orx"/>
-                                    <constraint firstItem="6sT-tb-IB4" firstAttribute="top" secondItem="uM4-Ef-Dpw" secondAttribute="top" constant="5" id="VuO-8E-9mI"/>
-                                    <constraint firstItem="6sT-tb-IB4" firstAttribute="leading" secondItem="uM4-Ef-Dpw" secondAttribute="leading" constant="5" id="ZEx-KT-t2X"/>
+                                    <constraint firstAttribute="bottom" secondItem="HfF-X5-jNl" secondAttribute="bottom" id="50u-Sx-FOD"/>
+                                    <constraint firstItem="HfF-X5-jNl" firstAttribute="leading" secondItem="uM4-Ef-Dpw" secondAttribute="leading" id="dNz-4K-i2G"/>
+                                    <constraint firstAttribute="trailing" secondItem="HfF-X5-jNl" secondAttribute="trailing" id="ggW-wc-iqG"/>
+                                    <constraint firstItem="HfF-X5-jNl" firstAttribute="top" secondItem="uM4-Ef-Dpw" secondAttribute="top" id="xp1-By-iZp"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="imageView" destination="6sT-tb-IB4" id="8c3-nT-q1G"/>
+                                    <outlet property="containerView" destination="QFu-eo-YU4" id="yxw-So-gqg"/>
+                                    <outlet property="imageView" destination="Y0c-Mk-wbg" id="X8Z-oh-Uee"/>
                                 </connections>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Pc7-bg-ZYO" customClass="MainCollectionViewCell" customModule="USCitizenshipTestApp" customModuleProvider="target">
-                                <rect key="frame" x="193" y="20" width="162" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="162" height="140"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8sn-N8-xBt" customClass="MainCollectionViewCell" customModule="USCitizenshipTestApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="170" width="162" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="162" height="140"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Kpc-6v-fjW" customClass="MainCollectionViewCell" customModule="USCitizenshipTestApp" customModuleProvider="target">
-                                <rect key="frame" x="193" y="170" width="162" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="162" height="140"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0A5-1Z-1at" customClass="MainCollectionViewCell" customModule="USCitizenshipTestApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="320" width="162" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="162" height="140"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -84,10 +77,29 @@
                             <outlet property="delegate" destination="jyE-29-g2Q" id="2nW-oj-6DT"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="Euv-90-UJl"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kag-n4-mac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="280.80000000000001" y="94.581280788177338"/>
+            <point key="canvasLocation" x="1223.2" y="94.581280788177338"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qCW-vh-jDw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z2X-4D-j6Q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1gt-yR-7uQ">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jyE-29-g2Q" kind="relationship" relationship="rootViewController" id="IZG-fe-Syw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VzJ-7J-Lfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="438" y="95"/>
         </scene>
     </scenes>
 </document>

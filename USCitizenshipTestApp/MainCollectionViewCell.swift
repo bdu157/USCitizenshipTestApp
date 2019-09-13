@@ -10,8 +10,16 @@ import UIKit
 
 class MainCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var questionLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        imageView.layer.cornerRadius = 14
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.cyan.cgColor
+    }
+    
     
     var question: Question? {
         didSet {
@@ -21,8 +29,9 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     private func updateViews() {
         if let question = question {
-            self.imageView?.image = question.questionPhoto
-            self.questionLabel?.text = question.answer
+            
+           let image = UIImage(named: question.questionPhoto)
+            self.imageView.image = image
         }
     }
 }
