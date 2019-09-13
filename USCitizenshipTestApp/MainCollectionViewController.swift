@@ -15,6 +15,9 @@ class MainCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
+            layout.delegate = self
+        }
     }
 
     /*
@@ -71,12 +74,13 @@ class MainCollectionViewController: UICollectionViewController {
     
     }
     */
-
 }
 
-extension MainCollectionViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) / 2
-        return CGSize(width: itemSize, height: itemSize)
+extension MainCollectionViewController: PinterestLayoutDelegate {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
+        guard let image = UIImage(named: self.modelViewController.allQuestions[indexPath.item].questionPhoto) else {return CGFloat(0)}
+        return image.size.height
     }
 }
