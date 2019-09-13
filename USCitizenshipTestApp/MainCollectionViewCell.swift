@@ -10,10 +10,17 @@ import UIKit
 
 class MainCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var questionLabel: UILabel!
     
-    let modelViewController = ModelViewController()
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        imageView.layer.cornerRadius = 14
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.cyan.cgColor
+    }
+    
+    
     var question: Question? {
         didSet {
             self.updateViews()
@@ -21,19 +28,10 @@ class MainCollectionViewCell: UICollectionViewCell {
     }
     
     private func updateViews() {
-        guard let question = question else {return}
-        
-        self.questionLabel.text = question.question
-        
-        self.modelViewController.fetchImages(imgUrlString: question.url) { (result) in
-            if let result = try? result.get() {
-                let image = UIImage(data: result)
-                
-                DispatchQueue.main.async {
-                    self.imageView.image = image
-                }
-            }
+        if let question = question {
+            
+           let image = UIImage(named: question.questionPhoto)
+            self.imageView.image = image
         }
     }
-
 }

@@ -7,10 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 struct Question: Codable {
-    let question: String
-    let url: String
+    let questionPhoto: String
     let isCompleted: Bool
     let answer: String
 }
