@@ -16,8 +16,6 @@ class MainCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         imageView.layer.cornerRadius = 14
-        imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor.cyan.cgColor
     }
     
     

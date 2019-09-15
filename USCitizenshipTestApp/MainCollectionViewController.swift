@@ -15,9 +15,9 @@ class MainCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
-            layout.delegate = self
-        }
+        let layout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.sectionHeadersPinToVisibleBounds = true
+        
     }
 
     /*
@@ -74,13 +74,11 @@ class MainCollectionViewController: UICollectionViewController {
     
     }
     */
-}
-
-extension MainCollectionViewController: PinterestLayoutDelegate {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-        guard let image = UIImage(named: self.modelViewController.allQuestions[indexPath.item].questionPhoto) else {return CGFloat(0)}
-        return image.size.height
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as! SectionHeader
+        let section = Section()
+        section.count = self.modelViewController.allQuestions.count
+        view.section = section
+        return view
     }
 }
