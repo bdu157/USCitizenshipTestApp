@@ -1,0 +1,6 @@
+framework module Pods_USCitizenshipTestApp {
+  umbrella header "Pods-USCitizenshipTestApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

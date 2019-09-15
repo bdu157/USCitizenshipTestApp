@@ -10,7 +10,6 @@ import UIKit
 
 class MainCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     
     override func awakeFromNib() {

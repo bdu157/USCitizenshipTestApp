@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Lottie
 
 class MainCollectionViewController: UICollectionViewController {
     
     let modelViewController = ModelViewController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

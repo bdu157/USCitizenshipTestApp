@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,8 +17,11 @@
 		0B9595F52322B2CA00F8CFC9 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9595F42322B2CA00F8CFC9 /* MainCollectionViewCell.swift */; };
 		0BAB0757231C25DF002983F8 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BAB0756231C25DF002983F8 /* questions.json */; };
 		0BAB0759231C2610002983F8 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAB0758231C2610002983F8 /* Question.swift */; };
+		0BC0D99B232E475B00ED1C7B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC0D99A232E475B00ED1C7B /* DetailViewController.swift */; };
+		0BC0D99D232E47A300ED1C7B /* 2166-dotted-loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BC0D99C232E47A300ED1C7B /* 2166-dotted-loader.json */; };
 		0BC57916232BD20A003DBB14 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC57915232BD20A003DBB14 /* SectionHeader.swift */; };
 		0BC57918232BD3A0003DBB14 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC57917232BD3A0003DBB14 /* Section.swift */; };
+		60578310922612665B0AD3F6 /* Pods_USCitizenshipTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38830CFDC14AC504F775EBEC /* Pods_USCitizenshipTestApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +37,13 @@
 		0B9595F42322B2CA00F8CFC9 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		0BAB0756231C25DF002983F8 /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
 		0BAB0758231C2610002983F8 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		0BC0D99A232E475B00ED1C7B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		0BC0D99C232E47A300ED1C7B /* 2166-dotted-loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "2166-dotted-loader.json"; sourceTree = "<group>"; };
 		0BC57915232BD20A003DBB14 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		0BC57917232BD3A0003DBB14 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		38830CFDC14AC504F775EBEC /* Pods_USCitizenshipTestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USCitizenshipTestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C6628DFC920F33B51182357 /* Pods-USCitizenshipTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USCitizenshipTestApp.debug.xcconfig"; path = "Target Support Files/Pods-USCitizenshipTestApp/Pods-USCitizenshipTestApp.debug.xcconfig"; sourceTree = "<group>"; };
+		FA166A747B53C627EC8205F5 /* Pods-USCitizenshipTestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USCitizenshipTestApp.release.xcconfig"; path = "Target Support Files/Pods-USCitizenshipTestApp/Pods-USCitizenshipTestApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60578310922612665B0AD3F6 /* Pods_USCitizenshipTestApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +64,8 @@
 				0B349403231BABA000861CFD /* USCitizenshipTestApp */,
 				0BAB0755231C25BB002983F8 /* Resources */,
 				0B349402231BABA000861CFD /* Products */,
+				42FEDE12763D4F1E146A8B2C /* Pods */,
+				1033342676C8DB4384436235 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,7 +80,9 @@
 		0B349403231BABA000861CFD /* USCitizenshipTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				0BC0D99C232E47A300ED1C7B /* 2166-dotted-loader.json */,
 				0B9595F22322B2B100F8CFC9 /* MainCollectionViewController.swift */,
+				0BC0D99A232E475B00ED1C7B /* DetailViewController.swift */,
 				0BC57914232BD1FD003DBB14 /* Cells */,
 				0B349418231BAD8500861CFD /* ModelViewController.swift */,
 				0B663F2B232B41ED006643C1 /* Models */,
@@ -133,6 +146,23 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		1033342676C8DB4384436235 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38830CFDC14AC504F775EBEC /* Pods_USCitizenshipTestApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		42FEDE12763D4F1E146A8B2C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C6628DFC920F33B51182357 /* Pods-USCitizenshipTestApp.debug.xcconfig */,
+				FA166A747B53C627EC8205F5 /* Pods-USCitizenshipTestApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,9 +170,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B349413231BABA200861CFD /* Build configuration list for PBXNativeTarget "USCitizenshipTestApp" */;
 			buildPhases = (
+				22F3AE4D23123970D00762DE /* [CP] Check Pods Manifest.lock */,
 				0B3493FD231BABA000861CFD /* Sources */,
 				0B3493FE231BABA000861CFD /* Frameworks */,
 				0B3493FF231BABA000861CFD /* Resources */,
+				54D9F12F8916A5E7CDC0CEEE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -192,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B34940F231BABA200861CFD /* LaunchScreen.storyboard in Resources */,
+				0BC0D99D232E47A300ED1C7B /* 2166-dotted-loader.json in Resources */,
 				0B663F30232B4D9F006643C1 /* Questions.plist in Resources */,
 				0B34940C231BABA200861CFD /* Assets.xcassets in Resources */,
 				0B34940A231BABA000861CFD /* Main.storyboard in Resources */,
@@ -200,6 +233,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22F3AE4D23123970D00762DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-USCitizenshipTestApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54D9F12F8916A5E7CDC0CEEE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-USCitizenshipTestApp/Pods-USCitizenshipTestApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-USCitizenshipTestApp/Pods-USCitizenshipTestApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-USCitizenshipTestApp/Pods-USCitizenshipTestApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0B3493FD231BABA000861CFD /* Sources */ = {
@@ -213,6 +288,7 @@
 				0BAB0759231C2610002983F8 /* Question.swift in Sources */,
 				0B349419231BAD8500861CFD /* ModelViewController.swift in Sources */,
 				0B349405231BABA000861CFD /* AppDelegate.swift in Sources */,
+				0BC0D99B232E475B00ED1C7B /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +432,7 @@
 		};
 		0B349414231BABA200861CFD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C6628DFC920F33B51182357 /* Pods-USCitizenshipTestApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -374,6 +451,7 @@
 		};
 		0B349415231BABA200861CFD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA166A747B53C627EC8205F5 /* Pods-USCitizenshipTestApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
