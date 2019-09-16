@@ -20,7 +20,6 @@
 		0BC0D99B232E475B00ED1C7B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC0D99A232E475B00ED1C7B /* DetailViewController.swift */; };
 		0BC0D99D232E47A300ED1C7B /* 2166-dotted-loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BC0D99C232E47A300ED1C7B /* 2166-dotted-loader.json */; };
 		0BC57916232BD20A003DBB14 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC57915232BD20A003DBB14 /* SectionHeader.swift */; };
-		0BC57918232BD3A0003DBB14 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC57917232BD3A0003DBB14 /* Section.swift */; };
 		60578310922612665B0AD3F6 /* Pods_USCitizenshipTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38830CFDC14AC504F775EBEC /* Pods_USCitizenshipTestApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +39,6 @@
 		0BC0D99A232E475B00ED1C7B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0BC0D99C232E47A300ED1C7B /* 2166-dotted-loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "2166-dotted-loader.json"; sourceTree = "<group>"; };
 		0BC57915232BD20A003DBB14 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
-		0BC57917232BD3A0003DBB14 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		38830CFDC14AC504F775EBEC /* Pods_USCitizenshipTestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USCitizenshipTestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C6628DFC920F33B51182357 /* Pods-USCitizenshipTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USCitizenshipTestApp.debug.xcconfig"; path = "Target Support Files/Pods-USCitizenshipTestApp/Pods-USCitizenshipTestApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FA166A747B53C627EC8205F5 /* Pods-USCitizenshipTestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USCitizenshipTestApp.release.xcconfig"; path = "Target Support Files/Pods-USCitizenshipTestApp/Pods-USCitizenshipTestApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				0BAB0758231C2610002983F8 /* Question.swift */,
-				0BC57917232BD3A0003DBB14 /* Section.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -284,7 +281,6 @@
 				0B9595F52322B2CA00F8CFC9 /* MainCollectionViewCell.swift in Sources */,
 				0B9595F32322B2B100F8CFC9 /* MainCollectionViewController.swift in Sources */,
 				0BC57916232BD20A003DBB14 /* SectionHeader.swift in Sources */,
-				0BC57918232BD3A0003DBB14 /* Section.swift in Sources */,
 				0BAB0759231C2610002983F8 /* Question.swift in Sources */,
 				0B349419231BAD8500861CFD /* ModelViewController.swift in Sources */,
 				0B349405231BABA000861CFD /* AppDelegate.swift in Sources */,

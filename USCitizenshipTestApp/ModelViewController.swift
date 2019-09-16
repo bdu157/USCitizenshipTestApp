@@ -29,4 +29,8 @@ class ModelViewController {
             return
         }
     }
+    
+    func updatedQuestions() {
+        //update isCompleteds
+    }
 }

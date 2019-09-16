@@ -32,21 +32,21 @@
     {
         "questionPhoto" : "07",
         "isCompleted": false,
-        "answer": "answer6"
+        "answer": "answer7"
     },
     {
         "questionPhoto" : "08",
         "isCompleted": false,
-        "answer": "answer6"
+        "answer": "answer8"
     },
     {
         "questionPhoto" : "09",
         "isCompleted": false,
-        "answer": "answer6"
+        "answer": "answer9"
     },
     {
         "questionPhoto" : "10",
-        "isCompleted": false,
-        "answer": "answer6"
+        "isCompleted": true,
+        "answer": "answer10"
     }
 ]
