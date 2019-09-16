@@ -29,4 +29,21 @@ class ModelViewController {
             return
         }
     }
+    
+    func updateQuestionForFinishedQuestion(for question: Question) {
+        
+        if let index = allQuestions.firstIndex(of: question) {
+            if allQuestions[index].isCompleted == false {
+                allQuestions[index].isCompleted = true
+            }
+        }
+    }
+    
+    func updateQuestionForStudyMoreQuestion(for question: Question) {
+        if let index = allQuestions.firstIndex(of: question) {
+            if allQuestions[index].isCompleted == true {
+                allQuestions[index].isCompleted = false
+            }
+        }
+    }
 }

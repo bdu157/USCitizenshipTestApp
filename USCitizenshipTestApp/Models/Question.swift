@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-struct Question: Codable {
+struct Question: Codable, Equatable {
     let questionPhoto: String
-    let isCompleted: Bool
+    var isCompleted: Bool
     let answer: String
 }
