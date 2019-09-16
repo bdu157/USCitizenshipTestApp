@@ -21,7 +21,10 @@ class DetailViewController: UIViewController {
             self.updateViews()
         }
     }
-        
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
@@ -64,10 +67,18 @@ class DetailViewController: UIViewController {
     @IBAction func dismissButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
     @IBAction func studyMoreButtonTapped(_ sender: Any) {
+        
+        guard let question = question else {return}
+        self.modelViewController.updateQuestionForStudyMoreQuestion(for: question)
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func gotItButtonTapped(_ sender: Any) {
+        
+        guard let question = question else {return}
+        self.modelViewController.updateQuestionForFinishedQuestion(for: question)
         self.dismiss(animated: true, completion: nil)
     }
     

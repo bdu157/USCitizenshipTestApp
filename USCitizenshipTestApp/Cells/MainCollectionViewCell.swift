@@ -10,6 +10,7 @@ import UIKit
 
 class MainCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var finishedLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
     override func awakeFromNib() {
@@ -27,8 +28,15 @@ class MainCollectionViewCell: UICollectionViewCell {
     private func updateViews() {
         if let question = question {
             
-           let image = UIImage(named: question.questionPhoto)
+            let image = UIImage(named: question.questionPhoto)
             self.imageView.image = image
+            
+            if question.isCompleted == true {
+                self.finishedLabel.text = "👍"
+                self.finishedLabel.isHidden = false
+            } else if question.isCompleted == false {
+                self.finishedLabel.isHidden = true
+            }
         }
     }
 }

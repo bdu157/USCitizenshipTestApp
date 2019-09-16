@@ -47,6 +47,6 @@
     {
         "questionPhoto" : "10",
         "isCompleted": true,
-        "answer": "answer10"
+        "answer": "this is the answer"
     }
 ]

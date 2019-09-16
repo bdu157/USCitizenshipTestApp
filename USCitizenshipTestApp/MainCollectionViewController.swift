@@ -13,6 +13,11 @@ class MainCollectionViewController: UICollectionViewController {
     
     let modelViewController = ModelViewController()
  
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.collectionView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,7 +55,7 @@ class MainCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as! SectionHeader
-        view.numberOfCells = self.modelViewController.allQuestions.count
+        view.questions = self.modelViewController.allQuestions
         return view
     }
 }
