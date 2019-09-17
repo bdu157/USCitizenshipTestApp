@@ -38,7 +38,7 @@ class MainCollectionViewCell: UICollectionViewCell {
 
             } else if question.isCompleted == false {
                 self.finishedLabel.isHidden = true
-                self.imageView.alpha = 1.0
+                self.imageView.alpha = 0.8
             }
         }
     }

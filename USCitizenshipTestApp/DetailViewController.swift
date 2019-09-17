@@ -44,6 +44,7 @@ class DetailViewController: UIViewController {
         if let question = question {
             DispatchQueue.main.async {
                 self.questionImageView.image = UIImage(named: question.questionPhoto)
+                self.questionImageView.alpha = 0.8
             }
         }
         
