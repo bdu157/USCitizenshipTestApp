@@ -17,7 +17,6 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="kV3-m9-h2m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.35181475650011951" green="0.37519840974020635" blue="0.41247247313807112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="5" id="CI3-y2-mVU">
                             <size key="itemSize" width="177" height="177"/>
                             <size key="headerReferenceSize" width="50" height="133"/>
@@ -91,7 +90,6 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <outlet property="animationView" destination="v6f-Ft-mnw" id="M9W-GM-4fa"/>
                                 <outlet property="countLabel" destination="V7z-7R-nze" id="IVr-vn-I9Y"/>
