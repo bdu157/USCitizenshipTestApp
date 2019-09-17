@@ -18,8 +18,9 @@
 		0BAB0757231C25DF002983F8 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BAB0756231C25DF002983F8 /* questions.json */; };
 		0BAB0759231C2610002983F8 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAB0758231C2610002983F8 /* Question.swift */; };
 		0BC0D99B232E475B00ED1C7B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC0D99A232E475B00ED1C7B /* DetailViewController.swift */; };
-		0BC0D99D232E47A300ED1C7B /* 2166-dotted-loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BC0D99C232E47A300ED1C7B /* 2166-dotted-loader.json */; };
 		0BC57916232BD20A003DBB14 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC57915232BD20A003DBB14 /* SectionHeader.swift */; };
+		0BEFB1E32330F5F200C9C8E6 /* studying.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BEFB1E22330F5F200C9C8E6 /* studying.json */; };
+		0BEFB1E52330F7A800C9C8E6 /* studyingDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BEFB1E42330F7A800C9C8E6 /* studyingDetail.json */; };
 		60578310922612665B0AD3F6 /* Pods_USCitizenshipTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38830CFDC14AC504F775EBEC /* Pods_USCitizenshipTestApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,8 +38,9 @@
 		0BAB0756231C25DF002983F8 /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
 		0BAB0758231C2610002983F8 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		0BC0D99A232E475B00ED1C7B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		0BC0D99C232E47A300ED1C7B /* 2166-dotted-loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "2166-dotted-loader.json"; sourceTree = "<group>"; };
 		0BC57915232BD20A003DBB14 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		0BEFB1E22330F5F200C9C8E6 /* studying.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = studying.json; sourceTree = "<group>"; };
+		0BEFB1E42330F7A800C9C8E6 /* studyingDetail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = studyingDetail.json; sourceTree = "<group>"; };
 		38830CFDC14AC504F775EBEC /* Pods_USCitizenshipTestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USCitizenshipTestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C6628DFC920F33B51182357 /* Pods-USCitizenshipTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USCitizenshipTestApp.debug.xcconfig"; path = "Target Support Files/Pods-USCitizenshipTestApp/Pods-USCitizenshipTestApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FA166A747B53C627EC8205F5 /* Pods-USCitizenshipTestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USCitizenshipTestApp.release.xcconfig"; path = "Target Support Files/Pods-USCitizenshipTestApp/Pods-USCitizenshipTestApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,7 +80,8 @@
 		0B349403231BABA000861CFD /* USCitizenshipTestApp */ = {
 			isa = PBXGroup;
 			children = (
-				0BC0D99C232E47A300ED1C7B /* 2166-dotted-loader.json */,
+				0BEFB1E22330F5F200C9C8E6 /* studying.json */,
+				0BEFB1E42330F7A800C9C8E6 /* studyingDetail.json */,
 				0B9595F22322B2B100F8CFC9 /* MainCollectionViewController.swift */,
 				0BC0D99A232E475B00ED1C7B /* DetailViewController.swift */,
 				0BC57914232BD1FD003DBB14 /* Cells */,
@@ -220,9 +223,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BEFB1E32330F5F200C9C8E6 /* studying.json in Resources */,
 				0B34940F231BABA200861CFD /* LaunchScreen.storyboard in Resources */,
-				0BC0D99D232E47A300ED1C7B /* 2166-dotted-loader.json in Resources */,
 				0B663F30232B4D9F006643C1 /* Questions.plist in Resources */,
+				0BEFB1E52330F7A800C9C8E6 /* studyingDetail.json in Resources */,
 				0B34940C231BABA200861CFD /* Assets.xcassets in Resources */,
 				0B34940A231BABA000861CFD /* Main.storyboard in Resources */,
 				0BAB0757231C25DF002983F8 /* questions.json in Resources */,

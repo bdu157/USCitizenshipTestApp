@@ -20,7 +20,7 @@ class SectionHeader: UICollectionReusableView {
     @IBOutlet weak var finishedCountLabel: UILabel!
     
     let animationSubView = AnimationView()
-    var filename = "2166-dotted-loader"
+    var filename = "studying"
     //another filename
     
     var questions: [Question]? = [] {

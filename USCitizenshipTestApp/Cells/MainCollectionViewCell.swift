@@ -34,6 +34,7 @@ class MainCollectionViewCell: UICollectionViewCell {
             if question.isCompleted == true {
                 self.finishedLabel.text = "👍"
                 self.finishedLabel.isHidden = false
+
             } else if question.isCompleted == false {
                 self.finishedLabel.isHidden = true
             }
