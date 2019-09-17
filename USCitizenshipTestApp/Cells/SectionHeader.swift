@@ -44,6 +44,7 @@ class SectionHeader: UICollectionReusableView {
         animationSubView.loopMode = .loop
         self.animationView.addSubview(animationSubView)
         animationSubView.play()
+
     }
     
     private var randomFileName: String {

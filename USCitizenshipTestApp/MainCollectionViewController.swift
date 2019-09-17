@@ -24,7 +24,6 @@ class MainCollectionViewController: UICollectionViewController {
         
         let layout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionHeadersPinToVisibleBounds = true
-        
     }
     
     // MARK: - Navigation
