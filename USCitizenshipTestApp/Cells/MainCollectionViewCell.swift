@@ -34,9 +34,11 @@ class MainCollectionViewCell: UICollectionViewCell {
             if question.isCompleted == true {
                 self.finishedLabel.text = "👍"
                 self.finishedLabel.isHidden = false
+                self.imageView.alpha = 0.2
 
             } else if question.isCompleted == false {
                 self.finishedLabel.isHidden = true
+                self.imageView.alpha = 1.0
             }
         }
     }
