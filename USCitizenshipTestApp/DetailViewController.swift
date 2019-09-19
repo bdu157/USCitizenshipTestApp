@@ -15,6 +15,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var questionImageView: UIImageView!
     @IBOutlet weak var seeAnswerButton: UIButton!
     @IBOutlet weak var thumbLabel: UILabel!
+    @IBOutlet weak var thumbImageView: UIImageView!
+    
+    @IBOutlet weak var card: UIView!
+    
+    var divisor: CGFloat!
+    
     
     var modelViewController: ModelViewController!
     var question: Question? {
@@ -28,7 +34,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
         questionImageView.layer.cornerRadius = 14
-        
+        divisor = (view.frame.width / 2) / 0.61
     }
     
     // MARK: - Navigation
@@ -88,4 +94,52 @@ class DetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func panCard(_ sender: UIPanGestureRecognizer) {
+        let card = sender.view!
+        let point = sender.translation(in: card) //how far you moved
+        let xFromCenter = card.center.x - view.center.x
+        
+        //100/2 = 50/0.61 degree number = 81.967
+        card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
+        
+        //let scale = min(100/abs(xFromCenter), 1)
+        card.transform = CGAffineTransform(rotationAngle: xFromCenter/divisor)
+        
+        
+        if xFromCenter > 0 {
+            thumbImageView.image = #imageLiteral(resourceName: "thumbsup")
+            thumbImageView.tintColor = UIColor.yellow
+        } else {
+            thumbImageView.image = #imageLiteral(resourceName: "thumbsdown")
+            thumbImageView.tintColor = UIColor.red
+        }
+        
+        thumbImageView.alpha = abs(xFromCenter) / view.center.x
+        
+        
+        if sender.state == UIGestureRecognizer.State.ended {
+            
+            if card.center.x < 75 {
+                //move off to the left side
+                UIView.animate(withDuration: 0.3) {
+                    card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
+                    card.alpha = 0
+                }
+                return
+            } else if card.center.x > (view.frame.width - 75) {
+                //move off to the right side
+                UIView.animate(withDuration: 0.3) {
+                    card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
+                    card.alpha = 0
+                }
+                return
+            }
+        
+        UIView.animate(withDuration: 0.2) {
+            card.center = self.view.center
+            self.thumbImageView.alpha = 0
+            card.transform = .identity
+            }
+        }
+    }
 }
