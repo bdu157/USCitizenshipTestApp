@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var questionImageView: UIImageView!
     @IBOutlet weak var seeAnswerButton: UIButton!
+    @IBOutlet weak var thumbLabel: UILabel!
     
     var modelViewController: ModelViewController!
     var question: Question? {
@@ -21,9 +22,7 @@ class DetailViewController: UIViewController {
             self.updateViews()
         }
     }
-    
-    
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +44,12 @@ class DetailViewController: UIViewController {
             DispatchQueue.main.async {
                 self.questionImageView.image = UIImage(named: question.questionPhoto)
                 self.questionImageView.alpha = 0.8
+            }
+            if question.isCompleted == true {
+                self.thumbLabel?.text = "👍"
+                self.thumbLabel?.isHidden = false
+            } else {
+                self.thumbLabel?.isHidden = true
             }
         }
         

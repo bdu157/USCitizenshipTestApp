@@ -42,7 +42,7 @@
     {
         "questionPhoto" : "09",
         "isCompleted": false,
-        "answer": ""
+        "answer": "answer9"
     },
     {
         "questionPhoto" : "10",

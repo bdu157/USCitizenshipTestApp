@@ -57,13 +57,13 @@ class SectionHeader: UICollectionReusableView {
     
     private func getStudyingQuestionsCount(for questions: [Question]) {
         let studyingQuestions =  questions.filter{$0.isCompleted == false}
-        self.countLabel.text = "\(studyingQuestions.count)/100"
+        self.countLabel.text = "\(studyingQuestions.count)"
         self.titleLabel.text = "Studying"
     }
     
     private func getFinishedQuestionsCount(for questions: [Question]) {
         let finishedQuestions = questions.filter {$0.isCompleted == true}
-        self.finishedCountLabel.text = "\(finishedQuestions.count)/100"
+        self.finishedCountLabel.text = "\(finishedQuestions.count)"
         self.finishedTitleLable.text = "Finished"
     }
 }
