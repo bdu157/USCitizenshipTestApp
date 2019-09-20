@@ -21,30 +21,29 @@ class DetailViewController: UIViewController {
     
     var divisor: CGFloat!
     
-    
     var modelViewController: ModelViewController!
     var question: Question? {
         didSet {
             self.updateViews()
         }
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
         questionImageView.layer.cornerRadius = 14
         divisor = (view.frame.width / 2) / 0.61
+        card.isUserInteractionEnabled = true
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-
+    
     func updateViews() {
         if let question = question {
             DispatchQueue.main.async {
@@ -119,27 +118,45 @@ class DetailViewController: UIViewController {
         
         if sender.state == UIGestureRecognizer.State.ended {
             
+            print("sender.state.ended is getting called")
             if card.center.x < 75 {
                 //move off to the left side
+                print("areas before swipe right animation happens")
                 UIView.animate(withDuration: 0.3) {
                     card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
                     card.alpha = 0
+                    print("swipe right action and animation called ")
                 }
+                self.gotItAndStudyMore()
                 return
+                
             } else if card.center.x > (view.frame.width - 75) {
                 //move off to the right side
                 UIView.animate(withDuration: 0.3) {
                     card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
                     card.alpha = 0
                 }
+                self.gotItAndStudyMore()
                 return
             }
-        
-        UIView.animate(withDuration: 0.2) {
-            card.center = self.view.center
-            self.thumbImageView.alpha = 0
-            card.transform = .identity
+            
+            UIView.animate(withDuration: 0.2) {
+                card.center = self.view.center
+                self.thumbImageView.alpha = 0
+                card.transform = .identity
             }
         }
+    }
+    
+    private func gotItAndStudyMore() {
+        guard let question = self.question else {return}
+        let target = card.center.x
+        
+        if target >= 75 {
+            self.modelViewController.updateQuestionForFinishedQuestion(for: question)
+        } else if target < 75 {
+            self.modelViewController.updateQuestionForStudyMoreQuestion(for: question)
+        }
+        self.dismiss(animated: true, completion: nil)
     }
 }
