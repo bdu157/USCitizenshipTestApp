@@ -19,6 +19,9 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var card: UIView!
     
+    @IBOutlet weak var leftArrowImageView: UIImageView!
+    
+    
     var divisor: CGFloat!
     
     var modelViewController: ModelViewController!
@@ -34,6 +37,7 @@ class DetailViewController: UIViewController {
         questionImageView.layer.cornerRadius = 14
         divisor = (view.frame.width / 2) / 0.61
         card.isUserInteractionEnabled = true
+
     }
     
     // MARK: - Navigation

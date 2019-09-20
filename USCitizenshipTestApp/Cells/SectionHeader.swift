@@ -29,6 +29,8 @@ class SectionHeader: UICollectionReusableView {
         }
     }
 
+    var delegate: SectionHeaderDelegate?
+    
     private func updateViews() {
         
         //this will update counts for studying and finisehd
@@ -44,7 +46,6 @@ class SectionHeader: UICollectionReusableView {
         animationSubView.loopMode = .loop
         self.animationView.addSubview(animationSubView)
         animationSubView.play()
-
     }
     
     private var randomFileName: String {
@@ -58,12 +59,16 @@ class SectionHeader: UICollectionReusableView {
     private func getStudyingQuestionsCount(for questions: [Question]) {
         let studyingQuestions =  questions.filter{$0.isCompleted == false}
         self.countLabel.text = "\(studyingQuestions.count)"
-        self.titleLabel.text = "Studying"
+        //self.titleLabel.text = "Studying"
     }
     
     private func getFinishedQuestionsCount(for questions: [Question]) {
         let finishedQuestions = questions.filter {$0.isCompleted == true}
         self.finishedCountLabel.text = "\(finishedQuestions.count)"
-        self.finishedTitleLable.text = "Finished"
+        if finishedQuestions.count == 10 {
+        delegate?.showAlert()
+        //self.finishedTitleLable.text = "Finished"
+        }
     }
+    
 }
