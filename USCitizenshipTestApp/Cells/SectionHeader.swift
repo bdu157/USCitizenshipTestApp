@@ -20,7 +20,7 @@ class SectionHeader: UICollectionReusableView {
     @IBOutlet weak var finishedCountLabel: UILabel!
     
     let animationSubView = AnimationView()
-    var filename = "2166-dotted-loader"
+    
     //another filename
     
     var questions: [Question]? = [] {
@@ -29,6 +29,8 @@ class SectionHeader: UICollectionReusableView {
         }
     }
 
+    var delegate: SectionHeaderDelegate?
+    
     private func updateViews() {
         
         //this will update counts for studying and finisehd
@@ -38,7 +40,7 @@ class SectionHeader: UICollectionReusableView {
         }
         
         animationSubView.frame = CGRect(x:0, y:0, width: 100, height:100)
-        let studyingAnimation = Animation.named(filename)
+        let studyingAnimation = Animation.named(randomFileName)
         animationSubView.animation = studyingAnimation
         animationSubView.contentMode = .scaleAspectFill
         animationSubView.loopMode = .loop
@@ -46,15 +48,27 @@ class SectionHeader: UICollectionReusableView {
         animationSubView.play()
     }
     
+    private var randomFileName: String {
+        var filenames: [String] = ["studying1", "studying2", "studying3"]
+        let randomNumber = Int.random(in: 0...2)
+        let randomName = filenames[randomNumber]
+        return randomName
+    }
+    
+    
     private func getStudyingQuestionsCount(for questions: [Question]) {
         let studyingQuestions =  questions.filter{$0.isCompleted == false}
-        self.countLabel.text = "\(studyingQuestions.count)/100"
-        self.titleLabel.text = "Studying"
+        self.countLabel.text = "\(studyingQuestions.count)"
+        //self.titleLabel.text = "Studying"
     }
     
     private func getFinishedQuestionsCount(for questions: [Question]) {
         let finishedQuestions = questions.filter {$0.isCompleted == true}
-        self.finishedCountLabel.text = "\(finishedQuestions.count)/100"
-        self.finishedTitleLable.text = "Finished"
+        self.finishedCountLabel.text = "\(finishedQuestions.count)"
+        if finishedQuestions.count == 10 {
+        delegate?.showAlert()
+        //self.finishedTitleLable.text = "Finished"
+        }
     }
+    
 }
