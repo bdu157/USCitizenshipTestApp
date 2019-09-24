@@ -8,9 +8,19 @@
 
 import UIKit
 import Lottie
+import CoreData
 
-class MainCollectionViewController: UICollectionViewController, SectionHeaderDelegate {
+class MainCollectionViewController: UICollectionViewController, SectionHeaderDelegate, NSFetchedResultsControllerDelegate {
     
+    lazy var fetchedResultsController: NSFetchedResultsController<Question> = {
+        let fetchRequest: NSFetchRequest<Question> = Question.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "questionPhoto", ascending: true)]
+        let moc = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        frc.delegate = self
+        try! frc.performFetch()
+        return frc
+    }()
     
     let modelViewController = ModelViewController()
     
@@ -21,7 +31,6 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         let layout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionHeadersPinToVisibleBounds = true
@@ -34,29 +43,31 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         if segue.identifier == "ShowDetail" {
             guard let destVC = segue.destination as? DetailViewController,
                 let selectedItem = collectionView.indexPathsForSelectedItems?.first else {return}
-            destVC.question = self.modelViewController.allQuestions[selectedItem.item]
-            destVC.modelViewController = self.modelViewController
+            destVC.question = self.fetchedResultsController.object(at: selectedItem)
+            destVC.modelViewController = modelViewController
         }
     }
     
     // MARK: UICollectionViewDataSource
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return self.fetchedResultsController.sections?.count ?? 1
+    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return self.modelViewController.allQuestions.count
+        return self.fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! MainCollectionViewCell
-        let question = self.modelViewController.allQuestions[indexPath.item]
-        
+        let question = self.fetchedResultsController.object(at: indexPath)
         cell.question = question
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as! SectionHeader
-        view.questions = self.modelViewController.allQuestions
+        view.questions = self.fetchedResultsController.fetchedObjects
         //delegate being assigned here for mainCollectionViewController to show alert based on datas from sectionHeader
         view.delegate = self
         return view
