@@ -18,8 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var thumbImageView: UIImageView!
     
     @IBOutlet weak var card: UIView!
-    
-    @IBOutlet weak var leftArrowImageView: UIImageView!
+
     
     
     var divisor: CGFloat!
@@ -51,7 +50,7 @@ class DetailViewController: UIViewController {
     func updateViews() {
         if let question = question {
             DispatchQueue.main.async {
-                self.questionImageView.image = UIImage(named: question.questionPhoto)
+                self.questionImageView.image = UIImage(named: question.questionPhoto!)
                 self.questionImageView.alpha = 0.8
             }
             if question.isCompleted == true {
@@ -61,7 +60,6 @@ class DetailViewController: UIViewController {
                 self.thumbLabel?.isHidden = true
             }
         }
-        
     }
     
     var answerLabel = UILabel()
@@ -83,17 +81,45 @@ class DetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
     @IBAction func studyMoreButtonTapped(_ sender: Any) {
         
         guard let question = question else {return}
-        self.modelViewController.updateQuestionForStudyMoreQuestion(for: question)
+        let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
+        backgroundContext.performAndWait {
+            //getting the specific object from persistentStore - CoreData
+            if let object = self.modelViewController.fetchSingleQuestionFromPersistentStore(for: question.questionPhoto!, context: backgroundContext) {
+                self.modelViewController.updateToStudyMore(question: object)
+            } else {
+                print("there is an error in updating question object from persistent store")
+            }
+            
+            do {
+                try backgroundContext.save()
+            } catch {
+                NSLog("there is an error in saving the data as backgroundContext")
+            }
+        }
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func gotItButtonTapped(_ sender: Any) {
         
         guard let question = question else {return}
-        self.modelViewController.updateQuestionForFinishedQuestion(for: question)
+        let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
+        backgroundContext.performAndWait {
+            //getting the specific object from persistentStore - CoreData
+            if let object = self.modelViewController.fetchSingleQuestionFromPersistentStore(for: question.questionPhoto!, context: backgroundContext) {
+                self.modelViewController.updateToFinished(question: object)
+            } else {
+                print("there is an error in updating question object from persistent store")
+            }
+            
+            do {
+                try backgroundContext.save()
+            } catch {
+                NSLog("there is an error in saving the data as backgroundContext")
+            }
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -157,9 +183,37 @@ class DetailViewController: UIViewController {
         let target = card.center.x
         
         if target >= 75 {
-            self.modelViewController.updateQuestionForFinishedQuestion(for: question)
+            let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
+            backgroundContext.performAndWait {
+                //getting the specific object from persistentStore - CoreData
+                if let object = self.modelViewController.fetchSingleQuestionFromPersistentStore(for: question.questionPhoto!, context: backgroundContext) {
+                    self.modelViewController.updateToFinished(question: object)
+                } else {
+                    print("there is an error in updating question object from persistent store")
+                }
+                
+                do {
+                    try backgroundContext.save()
+                } catch {
+                    NSLog("there is an error in saving the data as backgroundContext")
+                }
+            }
         } else if target < 75 {
-            self.modelViewController.updateQuestionForStudyMoreQuestion(for: question)
+            let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
+            backgroundContext.performAndWait {
+                //getting the specific object from persistentStore - CoreData
+                if let object = self.modelViewController.fetchSingleQuestionFromPersistentStore(for: question.questionPhoto!, context: backgroundContext) {
+                    self.modelViewController.updateToStudyMore(question: object)
+                } else {
+                    print("there is an error in updating question object from persistent store")
+                }
+                
+                do {
+                    try backgroundContext.save()
+                } catch {
+                    NSLog("there is an error in saving the data as backgroundContext")
+                }
+            }
         }
         self.dismiss(animated: true, completion: nil)
     }

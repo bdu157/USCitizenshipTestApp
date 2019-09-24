@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MainCollectionViewCell: UICollectionViewCell {
     
@@ -28,7 +29,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     private func updateViews() {
         if let question = question {
             
-            let image = UIImage(named: question.questionPhoto)
+            let image = UIImage(named: question.questionPhoto!)
             self.imageView.image = image
             
             if question.isCompleted == true {
