@@ -36,7 +36,12 @@ class DetailViewController: UIViewController {
         questionImageView.layer.cornerRadius = 14
         divisor = (view.frame.width / 2) / 0.61
         card.isUserInteractionEnabled = true
-
+        
+        self.card.center = CGPoint(x: view.center.x, y: view.center.y)
+        self.card.layer.borderWidth = 0.5
+        self.card.layer.borderColor = UIColor.white.cgColor
+        self.card.layer.cornerRadius = 14
+        self.card.backgroundColor = .cyan
     }
     
     // MARK: - Navigation
@@ -51,7 +56,7 @@ class DetailViewController: UIViewController {
         if let question = question {
             DispatchQueue.main.async {
                 self.questionImageView.image = UIImage(named: question.questionPhoto!)
-                self.questionImageView.alpha = 0.8
+                self.questionImageView.alpha = 0.95
             }
             if question.isCompleted == true {
                 self.thumbLabel?.text = "👍"
