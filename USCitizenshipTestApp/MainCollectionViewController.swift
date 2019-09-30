@@ -26,6 +26,7 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.collectionView.reloadData()
     }
     
@@ -80,5 +81,9 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         let okayAction = UIAlertAction(title: "Ready to pass the test!!", style: .default, handler: nil)
         alert.addAction(okayAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func loadImage(for cell: UICollectionViewCell, indexPath: IndexPath) {
+        //how to add NSOperations with cancelling fetching datas from coreData is it even possible?
     }
 }
