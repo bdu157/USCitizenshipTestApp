@@ -19,8 +19,8 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var card: UIView!
 
-    
-    
+    @IBOutlet weak var answerLabel: UILabel!
+
     var divisor: CGFloat!
     
     var modelViewController: ModelViewController!
@@ -41,7 +41,8 @@ class DetailViewController: UIViewController {
         self.card.layer.borderWidth = 0.5
         self.card.layer.borderColor = UIColor.white.cgColor
         self.card.layer.cornerRadius = 14
-        self.card.backgroundColor = .cyan
+        
+        self.seeAnswerButton.isHidden = false
     }
     
     // MARK: - Navigation
@@ -66,20 +67,57 @@ class DetailViewController: UIViewController {
             }
         }
     }
+
     
-    var answerLabel = UILabel()
+    let randomNumber = Int.random(in: 1...4)
     
     @IBAction func toSeeAnswerButtonTapped(_ sender: Any) {
-        animation()
+        
+        self.seeAnswerButton.isHidden = true
+        self.answerLabel.text = self.question?.answer
+        //self.animationOne()
+        /*
+        let animationCase = randomNumber
+        
+        switch animationCase {
+        case 1:
+            self.animationOne()
+            print("random number 1")
+        case 2:
+            self.animationTwo()
+            print("random number 2")
+        case 3:
+            self.animationThree()
+            print("random number 3")
+        case 4:
+            self.animationFour()
+            print("random number 4")
+        default:
+            self.animationOne()
+        }
+        */
     }
     
-    private func animation() {
-        self.seeAnswerButton.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
-        UIView.animate(withDuration: 3.0, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: [], animations: {
-            self.seeAnswerButton.transform = .identity
-            self.seeAnswerButton.setTitle(self.question!.answer, for: .normal)
-        }, completion: nil)
+    
+    //animations for answer
+    
+    private func animationOne() {
+       //use addKeyFrame including animation on button and answerlabel
+        
+        
+        
+        
     }
+    private func animationTwo() {
+        
+    }
+    private func animationThree() {
+        
+    }
+    private func animationFour() {
+        
+    }
+    
     
     
     @IBAction func dismissButtonTapped(_ sender: Any) {
