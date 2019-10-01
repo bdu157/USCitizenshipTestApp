@@ -28,7 +28,7 @@ class SectionHeader: UICollectionReusableView {
             self.updateViews()
         }
     }
-
+    
     var delegate: SectionHeaderDelegate?
     
     private func updateViews() {
@@ -65,9 +65,11 @@ class SectionHeader: UICollectionReusableView {
     private func getFinishedQuestionsCount(for questions: [Question]) {
         let finishedQuestions = questions.filter {$0.isCompleted == true}
         self.finishedCountLabel.text = "\(finishedQuestions.count)"
-        if finishedQuestions.count == 10 {
-        delegate?.showAlert()
-        //self.finishedTitleLable.text = "Finished"
+        if finishedQuestions.count == 5 {
+            delegate?.showAlertTwentyFive()
+            //self.finishedTitleLable.text = "Finished"
+        } else if finishedQuestions.count == 7 {
+            delegate?.showAlertFifty()
         }
     }
     

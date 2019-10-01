@@ -134,7 +134,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kag-n4-mac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1223.2" y="94.581280788177338"/>
+            <point key="canvasLocation" x="1226" y="95"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="5Oz-1K-nNw">
@@ -283,7 +283,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1949.5999999999999" y="94.581280788177338"/>
+            <point key="canvasLocation" x="1978" y="95"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qCW-vh-jDw">

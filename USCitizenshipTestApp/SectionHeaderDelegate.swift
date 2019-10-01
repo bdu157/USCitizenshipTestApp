@@ -10,5 +10,6 @@ import Foundation
 import UIKit
 
 protocol SectionHeaderDelegate {
-    func showAlert()
+    func showAlertTwentyFive()
+    func showAlertFifty()
 }

@@ -70,13 +70,12 @@ class DetailViewController: UIViewController {
     }
     
     
-    let randomNumber = Int.random(in: 1...4)
+    let randomNumber = Int.random(in: 1...3)
     
     @IBAction func toSeeAnswerButtonTapped(_ sender: Any) {
         
         self.seeAnswerButton.isHidden = true
         
-    
         if let question = self.question {
             let isContained = self.checkphotoNumber(for: question)
             
@@ -84,29 +83,27 @@ class DetailViewController: UIViewController {
                 self.textView.text = question.answer
             } else {
                 self.answerLabel.text = question.answer
+                
+                let animationCase = randomNumber
+                
+                switch animationCase {
+                case 1:
+                    self.answerLabel.pulse()
+                    print("random number 1")
+                case 2:
+                    self.answerLabel.flash()
+                    print("random number 2")
+                case 3:
+                    self.answerLabel.shake()
+                    print("random number 3")
+                default:
+                    return
+                }
             }
         }
-        //self.animationOne()
-        /*
-         let animationCase = randomNumber
-         
-         switch animationCase {
-         case 1:
-         self.animationOne()
-         print("random number 1")
-         case 2:
-         self.animationTwo()
-         print("random number 2")
-         case 3:
-         self.animationThree()
-         print("random number 3")
-         case 4:
-         self.animationFour()
-         print("random number 4")
-         default:
-         self.animationOne()
-         }
-         */
+
+        
+
     }
     
     private func checkphotoNumber(for question: Question) -> Bool {
@@ -125,23 +122,20 @@ class DetailViewController: UIViewController {
     
     //animations for answer
     
-    private func animationOne() {
-        //use addKeyFrame including animation on button and answerlabel
-        
-        
-        
-        
+    private func animationForAnswer() {
+        let animBlock = {
+
+            UILabel.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.3, animations: {
+                self.answerLabel.backgroundColor = UIColor(red: CGFloat(Int.random(in: 0...255)) / 255, green: CGFloat(Int.random(in: 0...255)) / 255, blue: CGFloat(Int.random(in: 0...255)) / 255, alpha: 1)
+            })
+            
+            UILabel.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.4, animations: {
+                self.answerLabel.transform = .identity
+                self.answerLabel.alpha = 1.0
+            })
+        }
+        UILabel.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: animBlock, completion: nil)
     }
-    private func animationTwo() {
-        
-    }
-    private func animationThree() {
-        
-    }
-    private func animationFour() {
-        
-    }
-    
     
     
     @IBAction func dismissButtonTapped(_ sender: Any) {
