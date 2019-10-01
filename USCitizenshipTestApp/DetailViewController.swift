@@ -18,8 +18,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var thumbImageView: UIImageView!
     
     @IBOutlet weak var card: UIView!
-
+    
     @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var textView: UITextView!
     
     var divisor: CGFloat!
     
@@ -67,42 +68,65 @@ class DetailViewController: UIViewController {
             }
         }
     }
-
+    
     
     let randomNumber = Int.random(in: 1...4)
     
     @IBAction func toSeeAnswerButtonTapped(_ sender: Any) {
         
         self.seeAnswerButton.isHidden = true
-        self.answerLabel.text = self.question?.answer
+        
+    
+        if let question = self.question {
+            let isContained = self.checkphotoNumber(for: question)
+            
+            if isContained {
+                self.textView.text = question.answer
+            } else {
+                self.answerLabel.text = question.answer
+            }
+        }
         //self.animationOne()
         /*
-        let animationCase = randomNumber
+         let animationCase = randomNumber
+         
+         switch animationCase {
+         case 1:
+         self.animationOne()
+         print("random number 1")
+         case 2:
+         self.animationTwo()
+         print("random number 2")
+         case 3:
+         self.animationThree()
+         print("random number 3")
+         case 4:
+         self.animationFour()
+         print("random number 4")
+         default:
+         self.animationOne()
+         }
+         */
+    }
+    
+    private func checkphotoNumber(for question: Question) -> Bool {
+        let numArray = ["36", "55", "64", "87", "92"]
+        var isContained: Bool = false
+        let questionPhotoString = question.questionPhoto
         
-        switch animationCase {
-        case 1:
-            self.animationOne()
-            print("random number 1")
-        case 2:
-            self.animationTwo()
-            print("random number 2")
-        case 3:
-            self.animationThree()
-            print("random number 3")
-        case 4:
-            self.animationFour()
-            print("random number 4")
-        default:
-            self.animationOne()
+        for i in numArray {
+            if questionPhotoString == i {
+                isContained = true
+            }
         }
-        */
+        return isContained
     }
     
     
     //animations for answer
     
     private func animationOne() {
-       //use addKeyFrame including animation on button and answerlabel
+        //use addKeyFrame including animation on button and answerlabel
         
         
         
