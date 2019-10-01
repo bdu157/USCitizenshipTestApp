@@ -18,8 +18,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var thumbImageView: UIImageView!
     
     @IBOutlet weak var card: UIView!
-
     
+    @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var textView: UITextView!
     
     var divisor: CGFloat!
     
@@ -41,7 +42,8 @@ class DetailViewController: UIViewController {
         self.card.layer.borderWidth = 0.5
         self.card.layer.borderColor = UIColor.white.cgColor
         self.card.layer.cornerRadius = 14
-        self.card.backgroundColor = .cyan
+        
+        self.seeAnswerButton.isHidden = false
     }
     
     // MARK: - Navigation
@@ -56,7 +58,7 @@ class DetailViewController: UIViewController {
         if let question = question {
             DispatchQueue.main.async {
                 self.questionImageView.image = UIImage(named: question.questionPhoto!)
-                self.questionImageView.alpha = 0.95
+                self.questionImageView.alpha = 0.93
             }
             if question.isCompleted == true {
                 self.thumbLabel?.text = "👍"
@@ -67,18 +69,72 @@ class DetailViewController: UIViewController {
         }
     }
     
-    var answerLabel = UILabel()
+    
+    let randomNumber = Int.random(in: 1...3)
     
     @IBAction func toSeeAnswerButtonTapped(_ sender: Any) {
-        animation()
+        
+        self.seeAnswerButton.isHidden = true
+        
+        if let question = self.question {
+            let isContained = self.checkphotoNumber(for: question)
+            
+            if isContained {
+                self.textView.text = question.answer
+            } else {
+                self.answerLabel.text = question.answer
+                
+                let animationCase = randomNumber
+                
+                switch animationCase {
+                case 1:
+                    self.answerLabel.pulse()
+                    print("random number 1")
+                case 2:
+                    self.answerLabel.flash()
+                    print("random number 2")
+                case 3:
+                    self.answerLabel.shake()
+                    print("random number 3")
+                default:
+                    return
+                }
+            }
+        }
+
+        
+
     }
     
-    private func animation() {
-        self.seeAnswerButton.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
-        UIView.animate(withDuration: 3.0, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: [], animations: {
-            self.seeAnswerButton.transform = .identity
-            self.seeAnswerButton.setTitle(self.question!.answer, for: .normal)
-        }, completion: nil)
+    private func checkphotoNumber(for question: Question) -> Bool {
+        let numArray = ["36", "55", "64", "87", "92"]
+        var isContained: Bool = false
+        let questionPhotoString = question.questionPhoto
+        
+        for i in numArray {
+            if questionPhotoString == i {
+                isContained = true
+            }
+        }
+        return isContained
+    }
+    
+    
+    //animations for answer
+    
+    private func animationForAnswer() {
+        let animBlock = {
+
+            UILabel.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.3, animations: {
+                self.answerLabel.backgroundColor = UIColor(red: CGFloat(Int.random(in: 0...255)) / 255, green: CGFloat(Int.random(in: 0...255)) / 255, blue: CGFloat(Int.random(in: 0...255)) / 255, alpha: 1)
+            })
+            
+            UILabel.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.4, animations: {
+                self.answerLabel.transform = .identity
+                self.answerLabel.alpha = 1.0
+            })
+        }
+        UILabel.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: animBlock, completion: nil)
     }
     
     

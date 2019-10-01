@@ -24,6 +24,7 @@
 		0BC57916232BD20A003DBB14 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC57915232BD20A003DBB14 /* SectionHeader.swift */; };
 		0BEFB1E32330F5F200C9C8E6 /* studying2.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BEFB1E22330F5F200C9C8E6 /* studying2.json */; };
 		0BEFB1E52330F7A800C9C8E6 /* studying1.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BEFB1E42330F7A800C9C8E6 /* studying1.json */; };
+		0BFC105D2343B6E000194D50 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC105C2343B6E000194D50 /* UILabelExtension.swift */; };
 		0BFF0DCC2334F29C00BC2A26 /* SectionHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFF0DCB2334F29C00BC2A26 /* SectionHeaderDelegate.swift */; };
 		60578310922612665B0AD3F6 /* Pods_USCitizenshipTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38830CFDC14AC504F775EBEC /* Pods_USCitizenshipTestApp.framework */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		0BC57915232BD20A003DBB14 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		0BEFB1E22330F5F200C9C8E6 /* studying2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = studying2.json; sourceTree = "<group>"; };
 		0BEFB1E42330F7A800C9C8E6 /* studying1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = studying1.json; sourceTree = "<group>"; };
+		0BFC105C2343B6E000194D50 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		0BFF0DCB2334F29C00BC2A26 /* SectionHeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderDelegate.swift; sourceTree = "<group>"; };
 		38830CFDC14AC504F775EBEC /* Pods_USCitizenshipTestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USCitizenshipTestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C6628DFC920F33B51182357 /* Pods-USCitizenshipTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USCitizenshipTestApp.debug.xcconfig"; path = "Target Support Files/Pods-USCitizenshipTestApp/Pods-USCitizenshipTestApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				0BB23D962331256A0098485F /* studying3.json */,
 				0B9595F22322B2B100F8CFC9 /* MainCollectionViewController.swift */,
 				0BC0D99A232E475B00ED1C7B /* DetailViewController.swift */,
+				0BFC105C2343B6E000194D50 /* UILabelExtension.swift */,
 				0BC57914232BD1FD003DBB14 /* Cells */,
 				0B349418231BAD8500861CFD /* ModelViewController.swift */,
 				0BFF0DCB2334F29C00BC2A26 /* SectionHeaderDelegate.swift */,
@@ -299,6 +302,7 @@
 				0BA2E5362339E92800752BC4 /* Question.xcdatamodeld in Sources */,
 				0BA2E53A2339EA1600752BC4 /* QuestionRepresentation.swift in Sources */,
 				0B9595F32322B2B100F8CFC9 /* MainCollectionViewController.swift in Sources */,
+				0BFC105D2343B6E000194D50 /* UILabelExtension.swift in Sources */,
 				0BC57916232BD20A003DBB14 /* SectionHeader.swift in Sources */,
 				0BA2E5382339E9C700752BC4 /* CoreDataStack.swift in Sources */,
 				0B349419231BAD8500861CFD /* ModelViewController.swift in Sources */,

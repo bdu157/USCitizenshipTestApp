@@ -76,9 +76,16 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     
     
     //delegate required method
-    func showAlert() {
-        let alert = UIAlertController(title: "Wow", message: "you made it to 100!!", preferredStyle: .alert)
-        let okayAction = UIAlertAction(title: "Ready to pass the test!!", style: .default, handler: nil)
+    func showAlertTwentyFive() {
+        let alert = UIAlertController(title: "25% Done", message: "Studied 25 out of 100", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Keep it up! you can do this!", style: .default, handler: nil)
+        alert.addAction(okayAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showAlertFifty() {
+        let alert = UIAlertController(title: "50% Done", message: "Studied 50 out of 100", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Keep it up! you can do this!", style: .default, handler: nil)
         alert.addAction(okayAction)
         self.present(alert, animated: true, completion: nil)
     }
