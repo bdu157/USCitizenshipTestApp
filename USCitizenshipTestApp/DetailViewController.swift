@@ -20,7 +20,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var card: UIView!
 
     @IBOutlet weak var answerLabel: UILabel!
-
+    
     var divisor: CGFloat!
     
     var modelViewController: ModelViewController!
@@ -57,7 +57,7 @@ class DetailViewController: UIViewController {
         if let question = question {
             DispatchQueue.main.async {
                 self.questionImageView.image = UIImage(named: question.questionPhoto!)
-                self.questionImageView.alpha = 0.95
+                self.questionImageView.alpha = 0.93
             }
             if question.isCompleted == true {
                 self.thumbLabel?.text = "👍"
