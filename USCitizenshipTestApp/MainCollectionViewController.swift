@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Lottie
 import CoreData
 
 class MainCollectionViewController: UICollectionViewController, SectionHeaderDelegate, NSFetchedResultsControllerDelegate {

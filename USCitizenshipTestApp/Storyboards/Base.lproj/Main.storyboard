@@ -39,7 +39,7 @@
                         <color key="backgroundColor" red="1" green="0.59313957740000001" blue="0.41730461829999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="wOk-NC-K4U"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Info" image="icons8-more-info-30" id="enT-Xu-ct9">
+                    <tabBarItem key="tabBarItem" title="Info" image="info" id="enT-Xu-ct9">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                 </viewController>
@@ -57,7 +57,7 @@
                         <color key="backgroundColor" red="0.51946735379999998" green="0.75967764849999997" blue="0.99994891880000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="p8o-Hb-9Kw"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Setting" image="icons8-gear-30" id="CBa-Yx-5sI">
+                    <tabBarItem key="tabBarItem" title="Setting" image="setting" id="CBa-Yx-5sI">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                 </viewController>
@@ -344,7 +344,7 @@
         <scene sceneID="qCW-vh-jDw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z2X-4D-j6Q" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="FlashCards" image="icons8-reading-30" id="gdJ-oJ-iim">
+                    <tabBarItem key="tabBarItem" title="FlashCards" image="flashCards" id="gdJ-oJ-iim">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -365,9 +365,9 @@
     <resources>
         <image name="01" width="504" height="306"/>
         <image name="background" width="3840" height="5760"/>
-        <image name="icons8-gear-30" width="30" height="30"/>
-        <image name="icons8-more-info-30" width="30" height="30"/>
-        <image name="icons8-reading-30" width="30" height="30"/>
+        <image name="flashCards" width="30" height="30"/>
+        <image name="info" width="30" height="30"/>
+        <image name="setting" width="30" height="30"/>
         <image name="thumbsup" width="160" height="160"/>
     </resources>
 </document>
