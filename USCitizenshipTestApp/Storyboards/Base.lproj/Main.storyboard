@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Main Tab View Controller-->
         <scene sceneID="35Q-Vo-kxx">
             <objects>
-                <tabBarController id="FbK-lr-E6a" sceneMemberID="viewController">
+                <tabBarController id="FbK-lr-E6a" customClass="MainTabViewController" customModule="USCitizenshipTestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ebx-8D-a1D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -45,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cFO-z2-w0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="489" y="-1068"/>
+            <point key="canvasLocation" x="454" y="-1155"/>
         </scene>
         <!--Settings-->
         <scene sceneID="76E-DC-zk7">
@@ -74,10 +74,13 @@
                                         <color key="textColor" red="0.96862745100000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="au8-v8-vt0">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="au8-v8-vt0">
                                         <rect key="frame" x="300" y="4" width="51" height="32.333333333333336"/>
                                         <color key="onTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="thumbTintColor" red="1" green="0.59313957740000001" blue="0.41730461829999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="switchButtonTapped:" destination="ooA-8j-d5Z" eventType="valueChanged" id="bTa-jJ-ger"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -113,6 +116,9 @@
                         <viewLayoutGuide key="safeArea" id="p8o-Hb-9Kw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="7GY-X1-egq"/>
+                    <connections>
+                        <outlet property="switchButton" destination="au8-v8-vt0" id="5Pi-xq-2Bh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3q-QS-Myi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -414,11 +420,11 @@
             </objects>
             <point key="canvasLocation" x="94" y="30"/>
         </scene>
-        <!--Setting-->
+        <!--Settings-->
         <scene sceneID="hfz-F8-yfu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="45w-FW-gJm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Setting" image="setting" id="CBa-Yx-5sI">
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="CBa-Yx-5sI">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -442,7 +448,7 @@
         <image name="background1" width="736" height="1309"/>
         <image name="flashCards" width="30" height="30"/>
         <image name="info" width="30" height="30"/>
-        <image name="setting" width="30" height="30"/>
+        <image name="settings" width="30" height="30"/>
         <image name="thumbsup" width="160" height="160"/>
     </resources>
 </document>

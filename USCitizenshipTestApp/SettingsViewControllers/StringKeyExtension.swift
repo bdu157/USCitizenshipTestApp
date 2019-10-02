@@ -1,5 +1,5 @@
 //
-//  NotificationExtension.swift
+//  SettingsKeys.swift
 //  USCitizenshipTestApp
 //
 //  Created by Dongwoo Pae on 10/3/19.
@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import UIKit
 
-extension Notification.Name {
-    static var needtoReloadData = Notification.Name("needtoReloadData")
+extension String {
+    static var shouldShowWhiteTheme = "ShouldShowWhiteTheme"
 }

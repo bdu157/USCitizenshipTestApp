@@ -22,8 +22,6 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     }()
     
     let modelViewController = ModelViewController()
-    //theme set up
-    let themeHelper = ThemeHelper()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

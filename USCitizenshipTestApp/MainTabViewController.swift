@@ -1,14 +1,14 @@
 //
-//  InfoViewController.swift
+//  MainTabViewController.swift
 //  USCitizenshipTestApp
 //
-//  Created by Dongwoo Pae on 10/2/19.
+//  Created by Dongwoo Pae on 10/3/19.
 //  Copyright © 2019 Dongwoo Pae. All rights reserved.
 //
 
 import UIKit
 
-class InfoViewController: UIViewController {
+class MainTabViewController: UITabBarController {
 
     
     override func viewDidLoad() {
