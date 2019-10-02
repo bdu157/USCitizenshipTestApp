@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.swift
+//  InfoViewController.swift
 //  USCitizenshipTestApp
 //
 //  Created by Dongwoo Pae on 10/2/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, ThemeHelperProtocols {
+class InfoViewController: UIViewController, ThemeHelperProtocols {
     
     var themeHelper: ThemeHelper?
     

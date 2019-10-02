@@ -32,7 +32,7 @@
         <!--Info-->
         <scene sceneID="98E-ml-n6c">
             <objects>
-                <viewController id="Njy-4F-EVu" sceneMemberID="viewController">
+                <viewController id="Njy-4F-EVu" customClass="InfoViewController" customModule="USCitizenshipTestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="45x-HU-bPe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cFO-z2-w0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="470" y="-981"/>
+            <point key="canvasLocation" x="489" y="-1068"/>
         </scene>
         <!--Settings-->
         <scene sceneID="76E-DC-zk7">

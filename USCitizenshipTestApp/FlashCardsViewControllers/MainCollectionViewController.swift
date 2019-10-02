@@ -28,14 +28,26 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.observeShouldReloadData()
+    }
+    
+    //observer for needtoReloadData
+    func observeShouldReloadData() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .needtoReloadData, object: nil)
+    }
+    
+    @objc func refreshViews(notification: Notification) {
         self.collectionView.reloadData()
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let layout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionHeadersPinToVisibleBounds = true
+        
+        
     }
     
     // MARK: - Navigation
