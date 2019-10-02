@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Lottie
 
 class DetailViewController: UIViewController {
     
@@ -101,11 +100,9 @@ class DetailViewController: UIViewController {
                 }
             }
         }
-
-        
-
     }
     
+    //for long answers
     private func checkphotoNumber(for question: Question) -> Bool {
         let numArray = ["36", "55", "64", "87", "92"]
         var isContained: Bool = false
@@ -160,6 +157,8 @@ class DetailViewController: UIViewController {
                 NSLog("there is an error in saving the data as backgroundContext")
             }
         }
+        //add notification here
+        NotificationCenter.default.post(name: .needtoReloadData, object: self)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -181,6 +180,8 @@ class DetailViewController: UIViewController {
                 NSLog("there is an error in saving the data as backgroundContext")
             }
         }
+        //add notification here
+        NotificationCenter.default.post(name: .needtoReloadData, object: self)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -276,6 +277,10 @@ class DetailViewController: UIViewController {
                 }
             }
         }
+        //add notification here
+        NotificationCenter.default.post(name: .needtoReloadData, object: self)
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+

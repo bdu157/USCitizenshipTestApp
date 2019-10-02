@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Lottie
 import CoreData
 
 class MainCollectionViewController: UICollectionViewController, SectionHeaderDelegate, NSFetchedResultsControllerDelegate {
@@ -23,18 +22,32 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     }()
     
     let modelViewController = ModelViewController()
+    //theme set up
+    let themeHelper = ThemeHelper()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.observeShouldReloadData()
+    }
+    
+    //observer for needtoReloadData
+    func observeShouldReloadData() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .needtoReloadData, object: nil)
+    }
+    
+    @objc func refreshViews(notification: Notification) {
         self.collectionView.reloadData()
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let layout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionHeadersPinToVisibleBounds = true
+        
+        
     }
     
     // MARK: - Navigation
