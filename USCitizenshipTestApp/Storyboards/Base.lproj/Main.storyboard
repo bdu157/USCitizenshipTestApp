@@ -349,7 +349,7 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumbsup" translatesAutoresizingMaskIntoConstraints="NO" id="HRc-PN-9d5">
-                                        <rect key="frame" x="159.66666666666666" y="294" width="16" height="16"/>
+                                        <rect key="frame" x="87.666666666666686" y="222" width="160" height="160"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -381,8 +381,11 @@
                     <connections>
                         <outlet property="answerLabel" destination="qV3-p9-5oV" id="hur-CO-ja4"/>
                         <outlet property="card" destination="gk6-fe-gIm" id="Fdp-Od-TG2"/>
+                        <outlet property="dismissButton" destination="wg5-IH-UGc" id="OLG-04-a00"/>
+                        <outlet property="gotitButton" destination="cq4-kU-D6z" id="f1w-cg-QWl"/>
                         <outlet property="questionImageView" destination="Fio-mZ-qh7" id="0Lp-Hf-0oX"/>
                         <outlet property="seeAnswerButton" destination="yJG-Rh-kiy" id="aJs-cB-ZFi"/>
+                        <outlet property="studyMoreButton" destination="dwQ-4f-Fph" id="3IR-Gc-Edr"/>
                         <outlet property="textView" destination="1vr-yG-H8N" id="J5G-rO-SVX"/>
                         <outlet property="thumbImageView" destination="HRc-PN-9d5" id="4Fz-rP-c1R"/>
                         <outlet property="thumbLabel" destination="71R-7G-IJa" id="CdX-f3-PfY"/>

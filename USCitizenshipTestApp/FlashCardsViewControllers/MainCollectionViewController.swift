@@ -43,7 +43,7 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         let userDefaults = UserDefaults.standard
         if userDefaults.bool(forKey: .shouldShowWhiteTheme) == true {
             //updateNavBar
-            let mainColorBlue = #colorLiteral(red: 0.1721551418, green: 0.3156097233, blue: 0.4867617488, alpha: 1)
+            let mainColorBlue = #colorLiteral(red: 0.1578108668, green: 0.298258096, blue: 0.4726179838, alpha: 1)
             let textAttributes = [NSAttributedString.Key.foregroundColor: mainColorBlue]
             self.navigationController?.navigationBar.titleTextAttributes = textAttributes
             self.navigationController?.navigationBar.barTintColor = .white
@@ -51,7 +51,7 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         } else {
             let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
             self.navigationController?.navigationBar.titleTextAttributes = textAttributes
-            self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1721551418, green: 0.3156097233, blue: 0.4867617488, alpha: 1)
+            self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1578108668, green: 0.298258096, blue: 0.4726179838, alpha: 1)
         }
     }
     
