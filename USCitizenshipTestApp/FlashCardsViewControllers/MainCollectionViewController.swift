@@ -22,22 +22,37 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     }()
     
     let modelViewController = ModelViewController()
-    //theme set up
-    let themeHelper = ThemeHelper()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.observeShouldReloadData()
+        self.updateNavBarTheme()
     }
     
     //observer for needtoReloadData
     func observeShouldReloadData() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .needtoReloadData, object: nil)
     }
-    
     @objc func refreshViews(notification: Notification) {
         self.collectionView.reloadData()
+    }
+    
+    
+    //update NavBar based on userDefault value for key: shouldshowwhitetheme
+    private func updateNavBarTheme() {
+        let userDefaults = UserDefaults.standard
+        if userDefaults.bool(forKey: .shouldShowWhiteTheme) == true {
+            //updateNavBar
+            let mainColorBlue = #colorLiteral(red: 0.1721551418, green: 0.3156097233, blue: 0.4867617488, alpha: 1)
+            let textAttributes = [NSAttributedString.Key.foregroundColor: mainColorBlue]
+            self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+            self.navigationController?.navigationBar.barTintColor = .white
+            
+        } else {
+            let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+            self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1721551418, green: 0.3156097233, blue: 0.4867617488, alpha: 1)
+        }
     }
     
     
@@ -46,8 +61,6 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         
         let layout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionHeadersPinToVisibleBounds = true
-        
-        
     }
     
     // MARK: - Navigation
