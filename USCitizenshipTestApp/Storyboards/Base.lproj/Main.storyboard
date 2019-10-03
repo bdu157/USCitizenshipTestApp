@@ -21,7 +21,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Z2X-4D-j6Q" kind="relationship" relationship="viewControllers" id="32U-ZM-4qd"/>
-                        <segue destination="Njy-4F-EVu" kind="relationship" relationship="viewControllers" id="I7s-HD-IyI"/>
+                        <segue destination="Ybp-5P-jhu" kind="relationship" relationship="viewControllers" id="I7s-HD-IyI"/>
                         <segue destination="45w-FW-gJm" kind="relationship" relationship="viewControllers" id="dIn-ps-Loa"/>
                     </connections>
                 </tabBarController>
@@ -29,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="-331" y="-672"/>
         </scene>
-        <!--Info-->
+        <!--Profile & Background-->
         <scene sceneID="98E-ml-n6c">
             <objects>
                 <viewController id="Njy-4F-EVu" customClass="InfoViewController" customModule="USCitizenshipTestApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,13 +39,11 @@
                         <color key="backgroundColor" red="1" green="0.59313957740000001" blue="0.41730461829999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="wOk-NC-K4U"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Info" image="info" id="enT-Xu-ct9">
-                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Profile &amp; Background" id="V9I-Ol-ZO1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cFO-z2-w0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="454" y="-1155"/>
+            <point key="canvasLocation" x="1396" y="-1155.6650246305419"/>
         </scene>
         <!--Settings-->
         <scene sceneID="76E-DC-zk7">
@@ -122,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3q-QS-Myi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1984.8" y="-655.41871921182269"/>
+            <point key="canvasLocation" x="2927.1999999999998" y="-655.41871921182269"/>
         </scene>
         <!--FlashCards-->
         <scene sceneID="7dp-wy-Zfd">
@@ -351,7 +349,7 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumbsup" translatesAutoresizingMaskIntoConstraints="NO" id="HRc-PN-9d5">
-                                        <rect key="frame" x="87.666666666666686" y="222" width="160" height="160"/>
+                                        <rect key="frame" x="159.66666666666666" y="294" width="16" height="16"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -439,7 +437,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNp-8H-nuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1192.8" y="-655.41871921182269"/>
+            <point key="canvasLocation" x="2135.1999999999998" y="-655.41871921182269"/>
+        </scene>
+        <!--Info-->
+        <scene sceneID="0Og-ov-bWW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ybp-5P-jhu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Info" image="info" id="enT-Xu-ct9">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="0XH-DY-9py">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Njy-4F-EVu" kind="relationship" relationship="rootViewController" id="iyF-0k-YAR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xJF-ez-LeX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="609" y="-1156"/>
         </scene>
     </scenes>
     <resources>

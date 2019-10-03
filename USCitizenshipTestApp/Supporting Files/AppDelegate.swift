@@ -17,15 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         
-        //update UINavigationBar set up
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        UINavigationBar.appearance().titleTextAttributes = textAttributes
-        UINavigationBar.appearance().largeTitleTextAttributes = textAttributes
+        let userDefaults = UserDefaults.standard
+        if userDefaults.bool(forKey: .shouldShowWhiteTheme) == false {
+            AppearanceHelper.setDefaultAppearance()
+        } else {
+            AppearanceHelper.setWhiteAppearance()
+        }
         
-        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.0995137468, green: 0.263354212, blue: 0.4718250036, alpha: 1)
-        
-        UITabBar.appearance().barTintColor = #colorLiteral(red: 0.0995137468, green: 0.263354212, blue: 0.4718250036, alpha: 1)
-        UITabBar.appearance().tintColor = .white
+//        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//        UINavigationBar.appearance().titleTextAttributes = textAttributes
+//        UINavigationBar.appearance().largeTitleTextAttributes = textAttributes
+//
+//        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.0995137468, green: 0.263354212, blue: 0.4718250036, alpha: 1)
+//
+//        UITabBar.appearance().barTintColor = #colorLiteral(red: 0.0995137468, green: 0.263354212, blue: 0.4718250036, alpha: 1)
+//        UITabBar.appearance().tintColor = .white
         
         return true
     }

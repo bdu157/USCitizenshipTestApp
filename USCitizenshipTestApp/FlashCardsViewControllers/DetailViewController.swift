@@ -33,6 +33,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        
+        
         questionImageView.layer.cornerRadius = 14
         divisor = (view.frame.width / 2) / 0.61
         card.isUserInteractionEnabled = true
@@ -121,7 +123,7 @@ class DetailViewController: UIViewController {
     
     private func animationForAnswer() {
         let animBlock = {
-
+            
             UILabel.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.3, animations: {
                 self.answerLabel.backgroundColor = UIColor(red: CGFloat(Int.random(in: 0...255)) / 255, green: CGFloat(Int.random(in: 0...255)) / 255, blue: CGFloat(Int.random(in: 0...255)) / 255, alpha: 1)
             })
