@@ -28,6 +28,7 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         super.viewWillAppear(animated)
         self.observeShouldReloadData()
         self.updateNavBarTheme()
+        
     }
     
     //observer for needtoReloadData
@@ -62,10 +63,6 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         
         let layout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionHeadersPinToVisibleBounds = true
-        
-        let confettiView = SAConfettiView(frame: self.view.bounds)
-        self.view.addSubview(confettiView)
-        confettiView.intensity = 0.75
     }
     
     // MARK: - Navigation
@@ -107,6 +104,48 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     
     
     //delegate required method
+    //confetti view
+    func showConfettiAnimation() {
+        
+        let confettiView = SAConfettiView(frame: self.view.bounds)
+        self.view.addSubview(confettiView)
+        confettiView.type = .Star
+        confettiView.intensity = 0.75
+        confettiView.startConfetti()
+       
+        //UIAlert part
+        let alert = UIAlertController(title: "Congrats on completing them all!!", message: "congrats!", preferredStyle: .actionSheet)
+        
+        let okayAction = UIAlertAction(title: "Okay I am done studying", style: .default) { (_) in
+            //add stop confetti() and exit out
+            DispatchQueue.main.async {
+                confettiView.stopConfetti()
+                //how do i delay a second or two
+                confettiView.removeFromSuperview()
+            }
+            
+        }
+        let resetAction = UIAlertAction(title: "Reset - I want to review them all again", style: .default) { (_) in
+            //add reset the view of the main collection view - stop confetti() and exit out
+            DispatchQueue.main.async {
+                confettiView.stopConfetti()
+                //add a second delay here
+                confettiView.removeFromSuperview()
+                //add reset here - using predicate to bring all datas that have false value and change them to true and reload collectionView after changing them
+            }
+            
+        }
+        
+        alert.addAction(okayAction)
+        alert.addAction(resetAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    //UIAlerts
     func showAlertTwentyFive() {
         let alert = UIAlertController(title: "25% Done", message: "Studied 25 out of 100", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "Keep it up! you can do this!", style: .default, handler: nil)
@@ -120,6 +159,13 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         alert.addAction(okayAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    
+
+    
+    
+    
+    
     
     private func loadImage(for cell: UICollectionViewCell, indexPath: IndexPath) {
         //how to add NSOperations with cancelling fetching datas from coreData is it even possible?

@@ -69,7 +69,7 @@ class SectionHeader: UICollectionReusableView {
         let finishedQuestions = questions.filter {$0.isCompleted == true}
         self.finishedCountLabel.text = "\(finishedQuestions.count)"
         if finishedQuestions.count == 5 {
-            delegate?.showAlertTwentyFive()
+            delegate?.showConfettiAnimation()
             //self.finishedTitleLable.text = "Finished"
         } else if finishedQuestions.count == 7 {
             delegate?.showAlertFifty()
