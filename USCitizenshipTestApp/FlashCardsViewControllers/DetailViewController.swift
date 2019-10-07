@@ -93,28 +93,40 @@ class DetailViewController: UIViewController {
         
         self.seeAnswerButton.isHidden = true
         
+        let userDefaults = UserDefaults.standard
+
+        
         if let question = self.question {
+            
             let isContained = self.checkphotoNumber(for: question)
             
             if isContained {
+                
                 self.textView.text = question.answer
+                
             } else {
-                self.answerLabel.text = question.answer
                 
-                let animationCase = randomNumber
-                
-                switch animationCase {
-                case 1:
-                    self.answerLabel.pulse()
-                    print("random number 1")
-                case 2:
-                    self.answerLabel.flash()
-                    print("random number 2")
-                case 3:
-                    self.answerLabel.shake()
-                    print("random number 3")
-                default:
-                    return
+                if userDefaults.bool(forKey: .noAnswerAnimtaion) {
+                    self.answerLabel.text = question.answer
+                } else {
+                    
+                    self.answerLabel.text = question.answer
+                    
+                    let animationCase = randomNumber
+                    
+                    switch animationCase {
+                    case 1:
+                        self.answerLabel.pulse()
+                        print("random number 1")
+                    case 2:
+                        self.answerLabel.flash()
+                        print("random number 2")
+                    case 3:
+                        self.answerLabel.shake()
+                        print("random number 3")
+                    default:
+                        return
+                    }
                 }
             }
         }

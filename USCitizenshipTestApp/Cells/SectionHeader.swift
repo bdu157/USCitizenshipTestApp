@@ -40,7 +40,7 @@ class SectionHeader: UICollectionReusableView {
         }
         
         animationSubView.frame = CGRect(x:0, y:0, width: 100, height:100)
-        let studyingAnimation = Animation.named(randomFileName)
+        let studyingAnimation = Animation.named("studying3")
         animationSubView.animation = studyingAnimation
         animationSubView.contentMode = .scaleAspectFill
         animationSubView.loopMode = .loop
@@ -48,12 +48,15 @@ class SectionHeader: UICollectionReusableView {
         animationSubView.play()
     }
     
-    private var randomFileName: String {
-        var filenames: [String] = ["studying1", "studying2", "studying3"]
-        let randomNumber = Int.random(in: 0...2)
-        let randomName = filenames[randomNumber]
-        return randomName
-    }
+    /*
+     //random file name
+     private var randomFileName: String {
+     var filenames: [String] = ["studying1", "studying2", "studying3"]
+     let randomNumber = Int.random(in: 0...2)
+     let randomName = filenames[randomNumber]
+     return randomName
+     }
+     */
     
     
     private func getStudyingQuestionsCount(for questions: [Question]) {
