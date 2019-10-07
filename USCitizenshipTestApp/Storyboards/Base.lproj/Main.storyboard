@@ -69,7 +69,6 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bright Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRh-uY-oKa">
                                         <rect key="frame" x="6" y="6" width="90" height="23"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
-                                        <color key="textColor" red="0.96862745100000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="au8-v8-vt0">
@@ -111,7 +110,6 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer Animation On/Off" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smk-KL-UnQ">
                                         <rect key="frame" x="6" y="6" width="186" height="23"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
-                                        <color key="textColor" red="0.96862745100000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -162,7 +160,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="7GY-X1-egq"/>
                     <connections>
+                        <outlet property="animationLabel" destination="smk-KL-UnQ" id="DvI-YJ-PtI"/>
                         <outlet property="animationSwitchButton" destination="UOc-6p-tjO" id="Tcn-Rz-XjA"/>
+                        <outlet property="brightModeLabel" destination="JRh-uY-oKa" id="dFQ-DW-YTg"/>
                         <outlet property="switchButton" destination="au8-v8-vt0" id="5Pi-xq-2Bh"/>
                     </connections>
                 </viewController>
