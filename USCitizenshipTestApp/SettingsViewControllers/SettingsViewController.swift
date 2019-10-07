@@ -49,6 +49,10 @@ class SettingsViewController: UIViewController {
         guard isViewLoaded else {return}
         let userDefaults = UserDefaults.standard
         switchButton.isOn = userDefaults.bool(forKey: .shouldShowWhiteTheme) //true otherwise false if there is no userDefault being saved(set) for this key: shouldShowWhiteTheme
+        if switchButton.isOn {
+            self.brightModeLabel.textColor = .white
+            self.animationLabel.textColor = .white
+        }
         animationSwitchButton.isOn = !userDefaults.bool(forKey: .noAnswerAnimtaion)
     }
     
