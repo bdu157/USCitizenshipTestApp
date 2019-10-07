@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SAConfettiView
 
 class MainCollectionViewController: UICollectionViewController, SectionHeaderDelegate, NSFetchedResultsControllerDelegate {
     
@@ -61,6 +62,10 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         
         let layout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionHeadersPinToVisibleBounds = true
+        
+        let confettiView = SAConfettiView(frame: self.view.bounds)
+        self.view.addSubview(confettiView)
+        confettiView.intensity = 0.75
     }
     
     // MARK: - Navigation
