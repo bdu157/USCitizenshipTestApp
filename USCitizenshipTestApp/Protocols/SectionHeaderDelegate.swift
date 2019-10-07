@@ -17,4 +17,5 @@ protocol SectionHeaderDelegate {
     //UIAlerts
     func showAlertTwentyFive()
     func showAlertFifty()
+    func showAlertSeventyFive()
 }

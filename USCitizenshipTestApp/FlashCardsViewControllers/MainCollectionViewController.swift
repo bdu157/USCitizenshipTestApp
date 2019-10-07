@@ -103,7 +103,7 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     }
     
     
-    //delegate required method
+    //delegate required method//
     //confetti view
     func showConfettiAnimation() {
         
@@ -112,7 +112,7 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         confettiView.type = .Star
         confettiView.intensity = 0.75
         confettiView.startConfetti()
-       
+        
         //UIAlert part
         let alert = UIAlertController(title: "Congrats on completing them all!!", message: "congrats!", preferredStyle: .actionSheet)
         
@@ -156,7 +156,7 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         self.collectionView.reloadData()
     }
     
-
+    
     //using NSPredicate to show isCompleted true value objects but it seems like NSPredicate is only for unique values??
     private func resetThroughNSPredicate() {
         let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
@@ -194,8 +194,14 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         self.present(alert, animated: true, completion: nil)
     }
     
+    func showAlertSeventyFive() {
+        let alert = UIAlertController(title: "75% Done", message: "Studied 75 out of 100", preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "Almost there!", style: .default, handler: nil)
+        alert.addAction(okayButton)
+        self.present(alert, animated: true, completion: nil)
+    }
     
-
+    
     
     
     
