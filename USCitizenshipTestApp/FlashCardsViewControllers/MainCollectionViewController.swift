@@ -132,6 +132,8 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
                 //add a second delay here
                 confettiView.removeFromSuperview()
                 //add reset here - using predicate to bring all datas that have false value and change them to true and reload collectionView after changing them
+                //or fetchedResultsController.objects -> false
+                self.reset()
             }
             
         }
@@ -142,7 +144,39 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         self.present(alert, animated: true, completion: nil)
     }
     
+    //reset using objects from fetchedResultsController
+    private func reset() {
+        //objects from fetchedResultsController vs objects through NSPredicate (for specific ones??)
+        let objects: [Question] = self.fetchedResultsController.fetchedObjects!
+        let completedQuestions = objects.filter{$0.isCompleted == true}
+        for i in completedQuestions {
+            i.isCompleted = false
+        }
+        self.modelViewController.saveToPersistentStore()
+        self.collectionView.reloadData()
+    }
     
+
+    //using NSPredicate to show isCompleted true value objects but it seems like NSPredicate is only for unique values??
+    private func resetThroughNSPredicate() {
+        let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
+        backgroundContext.performAndWait {
+            //getting the specific object from persistentStore - CoreData
+            if let objects = self.modelViewController.fetchTrueQuestionsFromPersistentStore(for: true, context: backgroundContext) {
+                for i in objects {
+                    i.isCompleted = false
+                }
+            } else {
+                print("there is an error in updating question object from persistent store")
+            }
+            
+            do {
+                try backgroundContext.save()
+            } catch {
+                NSLog("there is an error in saving the data as backgroundContext")
+            }
+        }
+    }
     
     
     //UIAlerts
