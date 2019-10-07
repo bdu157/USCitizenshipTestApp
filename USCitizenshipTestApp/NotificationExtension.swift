@@ -11,5 +11,4 @@ import UIKit
 
 extension Notification.Name {
     static var needtoReloadData = Notification.Name("needtoReloadData")
-    static var switchWasFlipped = Notification.Name("switchWasFlipped")
 }

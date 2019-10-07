@@ -16,6 +16,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var thumbLabel: UILabel!
     @IBOutlet weak var thumbImageView: UIImageView!
     
+    @IBOutlet weak var dismissButton: UIButton!
+    @IBOutlet weak var studyMoreButton: UIButton!
+    @IBOutlet weak var gotitButton: UIButton!
+    
     @IBOutlet weak var card: UIView!
     
     @IBOutlet weak var answerLabel: UILabel!
@@ -34,17 +38,29 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
         
-        
         questionImageView.layer.cornerRadius = 14
         divisor = (view.frame.width / 2) / 0.61
         card.isUserInteractionEnabled = true
-        
         self.card.center = CGPoint(x: view.center.x, y: view.center.y)
         self.card.layer.borderWidth = 0.5
-        self.card.layer.borderColor = UIColor.white.cgColor
         self.card.layer.cornerRadius = 14
-        
+        self.questionImageView.alpha = 0.93
         self.seeAnswerButton.isHidden = false
+        self.card.layer.borderColor = UIColor.white.cgColor
+        
+        let userDefaults = UserDefaults.standard
+        if userDefaults.bool(forKey: .shouldShowWhiteTheme) == true {
+            let mainColorBlue = #colorLiteral(red: 0.1651235223, green: 0.3135112226, blue: 0.5044639707, alpha: 1)
+            self.answerLabel.textColor = .orange
+            self.seeAnswerButton.setTitleColor(.orange, for: .normal)
+            self.view.backgroundColor = .white
+            self.card.layer.borderColor = UIColor.orange.cgColor
+            self.dismissButton.setTitleColor(mainColorBlue, for: .normal)
+            self.studyMoreButton.setTitleColor(mainColorBlue, for: .normal)
+            self.gotitButton.setTitleColor(mainColorBlue, for: .normal)
+            self.card.backgroundColor = mainColorBlue
+            self.card.layer.borderWidth = 1.0
+        }
     }
     
     // MARK: - Navigation
@@ -56,10 +72,10 @@ class DetailViewController: UIViewController {
     }
     
     func updateViews() {
+        guard isViewLoaded else {return}
         if let question = question {
             DispatchQueue.main.async {
                 self.questionImageView.image = UIImage(named: question.questionPhoto!)
-                self.questionImageView.alpha = 0.93
             }
             if question.isCompleted == true {
                 self.thumbLabel?.text = "👍"
@@ -77,28 +93,40 @@ class DetailViewController: UIViewController {
         
         self.seeAnswerButton.isHidden = true
         
+        let userDefaults = UserDefaults.standard
+
+        
         if let question = self.question {
+            
             let isContained = self.checkphotoNumber(for: question)
             
             if isContained {
+                
                 self.textView.text = question.answer
+                
             } else {
-                self.answerLabel.text = question.answer
                 
-                let animationCase = randomNumber
-                
-                switch animationCase {
-                case 1:
-                    self.answerLabel.pulse()
-                    print("random number 1")
-                case 2:
-                    self.answerLabel.flash()
-                    print("random number 2")
-                case 3:
-                    self.answerLabel.shake()
-                    print("random number 3")
-                default:
-                    return
+                if userDefaults.bool(forKey: .noAnswerAnimtaion) {
+                    self.answerLabel.text = question.answer
+                } else {
+                    
+                    self.answerLabel.text = question.answer
+                    
+                    let animationCase = randomNumber
+                    
+                    switch animationCase {
+                    case 1:
+                        self.answerLabel.pulse()
+                        print("random number 1")
+                    case 2:
+                        self.answerLabel.flash()
+                        print("random number 2")
+                    case 3:
+                        self.answerLabel.shake()
+                        print("random number 3")
+                    default:
+                        return
+                    }
                 }
             }
         }

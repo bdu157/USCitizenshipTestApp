@@ -11,6 +11,9 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var switchButton: UISwitch!
+    @IBOutlet weak var animationSwitchButton: UISwitch!
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -21,7 +24,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    
+    //switch button for bright mmode
     @IBAction func switchButtonTapped(_ sender: UISwitch) {
         let userDefaults = UserDefaults.standard
         userDefaults.set(sender.isOn, forKey: .shouldShowWhiteTheme)
@@ -34,10 +37,19 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    //switch button for answer animation
+    @IBAction func animationSwitchButtonTapped(_ sender: UISwitch) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(!sender.isOn, forKey: .noAnswerAnimtaion)
+    }
+    
+    
+    
     private func updateViews() {
         guard isViewLoaded else {return}
         let userDefaults = UserDefaults.standard
         switchButton.isOn = userDefaults.bool(forKey: .shouldShowWhiteTheme) //true otherwise false if there is no userDefault being saved(set) for this key: shouldShowWhiteTheme
+        animationSwitchButton.isOn = !userDefaults.bool(forKey: .noAnswerAnimtaion)
     }
     
     private func updateViewstoWhite() {
