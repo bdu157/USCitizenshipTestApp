@@ -118,24 +118,21 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         
         let okayAction = UIAlertAction(title: "Okay I am done studying", style: .default) { (_) in
             //add stop confetti() and exit out
-            DispatchQueue.main.async {
-                confettiView.stopConfetti()
-                //how do i delay a second or two
+            confettiView.stopConfetti()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
                 confettiView.removeFromSuperview()
-            }
-            
+            })
+            //how do i delay a second or two
         }
         let resetAction = UIAlertAction(title: "Reset - I want to review them all again", style: .default) { (_) in
             //add reset the view of the main collection view - stop confetti() and exit out
-            DispatchQueue.main.async {
-                confettiView.stopConfetti()
-                //add a second delay here
+            confettiView.stopConfetti()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
                 confettiView.removeFromSuperview()
                 //add reset here - using predicate to bring all datas that have false value and change them to true and reload collectionView after changing them
                 //or fetchedResultsController.objects -> false
                 self.reset()
-            }
-            
+            })
         }
         
         alert.addAction(okayAction)
