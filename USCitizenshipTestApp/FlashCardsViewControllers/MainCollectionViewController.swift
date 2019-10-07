@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SAConfettiView
 
 class MainCollectionViewController: UICollectionViewController, SectionHeaderDelegate, NSFetchedResultsControllerDelegate {
     
@@ -27,6 +28,7 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         super.viewWillAppear(animated)
         self.observeShouldReloadData()
         self.updateNavBarTheme()
+        
     }
     
     //observer for needtoReloadData
@@ -101,7 +103,80 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     }
     
     
-    //delegate required method
+    //delegate required method//
+    //confetti view
+    func showConfettiAnimation() {
+        
+        let confettiView = SAConfettiView(frame: self.view.bounds)
+        self.view.addSubview(confettiView)
+        confettiView.type = .Star
+        confettiView.intensity = 0.75
+        confettiView.startConfetti()
+        
+        //UIAlert part
+        let alert = UIAlertController(title: "Congrats on completing them all!!", message: "congrats!", preferredStyle: .actionSheet)
+        
+        let okayAction = UIAlertAction(title: "Okay I am done studying", style: .default) { (_) in
+            //add stop confetti() and exit out
+            confettiView.stopConfetti()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                confettiView.removeFromSuperview()
+            })
+            //how do i delay a second or two
+        }
+        let resetAction = UIAlertAction(title: "Reset - I want to review them all again", style: .default) { (_) in
+            //add reset the view of the main collection view - stop confetti() and exit out
+            confettiView.stopConfetti()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                confettiView.removeFromSuperview()
+                //add reset here - using predicate to bring all datas that have false value and change them to true and reload collectionView after changing them
+                //or fetchedResultsController.objects -> false
+                self.reset()
+            })
+        }
+        
+        alert.addAction(okayAction)
+        alert.addAction(resetAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    //reset using objects from fetchedResultsController
+    private func reset() {
+        //objects from fetchedResultsController vs objects through NSPredicate (for specific ones??)
+        let objects: [Question] = self.fetchedResultsController.fetchedObjects!
+        let completedQuestions = objects.filter{$0.isCompleted == true}
+        for i in completedQuestions {
+            i.isCompleted = false
+        }
+        self.modelViewController.saveToPersistentStore()
+        self.collectionView.reloadData()
+    }
+    
+    
+    //using NSPredicate to show isCompleted true value objects but it seems like NSPredicate is only for unique values??
+    private func resetThroughNSPredicate() {
+        let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
+        backgroundContext.performAndWait {
+            //getting the specific object from persistentStore - CoreData
+            if let objects = self.modelViewController.fetchTrueQuestionsFromPersistentStore(for: true, context: backgroundContext) {
+                for i in objects {
+                    i.isCompleted = false
+                }
+            } else {
+                print("there is an error in updating question object from persistent store")
+            }
+            
+            do {
+                try backgroundContext.save()
+            } catch {
+                NSLog("there is an error in saving the data as backgroundContext")
+            }
+        }
+    }
+    
+    
+    //UIAlerts
     func showAlertTwentyFive() {
         let alert = UIAlertController(title: "25% Done", message: "Studied 25 out of 100", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "Keep it up! you can do this!", style: .default, handler: nil)
@@ -115,6 +190,19 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         alert.addAction(okayAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func showAlertSeventyFive() {
+        let alert = UIAlertController(title: "75% Done", message: "Studied 75 out of 100", preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "Almost there!", style: .default, handler: nil)
+        alert.addAction(okayButton)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    
+    
     
     private func loadImage(for cell: UICollectionViewCell, indexPath: IndexPath) {
         //how to add NSOperations with cancelling fetching datas from coreData is it even possible?

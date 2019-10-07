@@ -11,6 +11,11 @@ import UIKit
 
 //work on this later with confetti
 protocol SectionHeaderDelegate {
+    //show confetti
+    func showConfettiAnimation()
+    
+    //UIAlerts
     func showAlertTwentyFive()
     func showAlertFifty()
+    func showAlertSeventyFive()
 }

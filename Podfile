@@ -5,5 +5,6 @@ target 'USCitizenshipTestApp' do
   use_frameworks!
   
   pod 'lottie-ios'
+  pod 'SAConfettiView'
 
 end

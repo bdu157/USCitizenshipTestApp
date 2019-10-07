@@ -12,8 +12,8 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var switchButton: UISwitch!
     @IBOutlet weak var animationSwitchButton: UISwitch!
-    
-    
+    @IBOutlet weak var brightModeLabel: UILabel!
+    @IBOutlet weak var animationLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,6 +49,10 @@ class SettingsViewController: UIViewController {
         guard isViewLoaded else {return}
         let userDefaults = UserDefaults.standard
         switchButton.isOn = userDefaults.bool(forKey: .shouldShowWhiteTheme) //true otherwise false if there is no userDefault being saved(set) for this key: shouldShowWhiteTheme
+        if switchButton.isOn {
+            self.brightModeLabel.textColor = .white
+            self.animationLabel.textColor = .white
+        }
         animationSwitchButton.isOn = !userDefaults.bool(forKey: .noAnswerAnimtaion)
     }
     
@@ -62,6 +66,9 @@ class SettingsViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = .white
         let textAattributes = [NSAttributedString.Key.foregroundColor: mainColorDarkBlue]
         self.navigationController?.navigationBar.largeTitleTextAttributes = textAattributes
+        self.brightModeLabel.textColor = .white
+        self.animationLabel.textColor = .white
+        
     }
     
     private func updateViewstoDefault() {
@@ -73,5 +80,7 @@ class SettingsViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.0995137468, green: 0.263354212, blue: 0.4718250036, alpha: 1)
         let textAattributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.largeTitleTextAttributes = textAattributes
+        self.brightModeLabel.textColor = .black
+        self.animationLabel.textColor = .black
     }
 }

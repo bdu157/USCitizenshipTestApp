@@ -148,7 +148,7 @@ class DetailViewController: UIViewController {
     
     
     //animations for answer
-    
+    /* - never used
     private func animationForAnswer() {
         let animBlock = {
             
@@ -163,7 +163,7 @@ class DetailViewController: UIViewController {
         }
         UILabel.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: animBlock, completion: nil)
     }
-    
+    */
     
     @IBAction func dismissButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

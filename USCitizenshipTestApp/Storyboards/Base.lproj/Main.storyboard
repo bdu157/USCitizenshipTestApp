@@ -36,7 +36,8 @@
                     <view key="view" contentMode="scaleToFill" id="45x-HU-bPe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.59313957740000001" blue="0.41730461829999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wOk-NC-K4U"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile &amp; Background" id="V9I-Ol-ZO1"/>
@@ -69,7 +70,6 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bright Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRh-uY-oKa">
                                         <rect key="frame" x="6" y="6" width="90" height="23"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
-                                        <color key="textColor" red="0.96862745100000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="au8-v8-vt0">
@@ -111,7 +111,6 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer Animation On/Off" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smk-KL-UnQ">
                                         <rect key="frame" x="6" y="6" width="186" height="23"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
-                                        <color key="textColor" red="0.96862745100000003" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -162,7 +161,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="7GY-X1-egq"/>
                     <connections>
+                        <outlet property="animationLabel" destination="smk-KL-UnQ" id="DvI-YJ-PtI"/>
                         <outlet property="animationSwitchButton" destination="UOc-6p-tjO" id="Tcn-Rz-XjA"/>
+                        <outlet property="brightModeLabel" destination="JRh-uY-oKa" id="dFQ-DW-YTg"/>
                         <outlet property="switchButton" destination="au8-v8-vt0" id="5Pi-xq-2Bh"/>
                     </connections>
                 </viewController>
@@ -228,7 +229,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8Ib-iW-ve5">
                                             <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="28"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Studying " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJT-yI-TzB">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Studying " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJT-yI-TzB">
                                                     <rect key="frame" x="0.0" y="0.0" width="80.666666666666671" height="28"/>
                                                     <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="20"/>
                                                     <color key="textColor" red="0.22911491990089417" green="0.36905968189239502" blue="0.54345977306365967" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -245,7 +246,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="osa-Eo-Tge">
                                             <rect key="frame" x="0.0" y="29" width="161.33333333333334" height="28"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finished " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmM-A8-h3J">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finished " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmM-A8-h3J">
                                                     <rect key="frame" x="0.0" y="0.0" width="80.666666666666671" height="28"/>
                                                     <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="20"/>
                                                     <color key="textColor" red="0.22911491990089417" green="0.36905968189239502" blue="0.54345977306365967" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -516,9 +517,9 @@
         <image name="01" width="504" height="306"/>
         <image name="background" width="3840" height="5760"/>
         <image name="background1" width="736" height="1309"/>
-        <image name="flashCards" width="30" height="30"/>
-        <image name="info" width="30" height="30"/>
-        <image name="settings" width="30" height="30"/>
+        <image name="flashCards" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="info" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="settings" width="33.333332061767578" height="33.333332061767578"/>
         <image name="thumbsup" width="160" height="160"/>
     </resources>
 </document>

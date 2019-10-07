@@ -102,6 +102,23 @@ class ModelViewController {
             NSLog("Error saving managed object context:\(error)")
         }
     }
+    
+
+    //to get false value to reset this does not work i think it is becaue format is not unique to certain objects so it will bring objects infinitely??
+    func fetchTrueQuestionsFromPersistentStore(for isCompleted: Bool, context:NSManagedObjectContext) -> [Question]? {
+        let fetchRequest: NSFetchRequest<Question> = Question.fetchRequest()
+        
+        fetchRequest.predicate = NSPredicate(format: "isCompleted == %@", isCompleted)
+        var result: [Question]? = nil
+        context.performAndWait {
+            do {
+                result = try context.fetch(fetchRequest)
+            } catch {
+                NSLog("Error fetching question from CoreData for \(isCompleted)")
+            }
+        }
+        return result
+    }
 }
 
 extension String {
