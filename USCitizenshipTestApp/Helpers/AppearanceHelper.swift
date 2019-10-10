@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-//call this based on userDefault for notification for sender ison
-
 enum AppearanceHelper {
     
     static var mainColorDarkBlue = #colorLiteral(red: 0.0995137468, green: 0.263354212, blue: 0.4718250036, alpha: 1)

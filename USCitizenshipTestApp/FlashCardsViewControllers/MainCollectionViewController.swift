@@ -12,6 +12,8 @@ import SAConfettiView
 
 class MainCollectionViewController: UICollectionViewController, SectionHeaderDelegate, NSFetchedResultsControllerDelegate {
     
+    
+    //MARK: FetchedResultController
     lazy var fetchedResultsController: NSFetchedResultsController<Question> = {
         let fetchRequest: NSFetchRequest<Question> = Question.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "questionPhoto", ascending: true)]
@@ -22,16 +24,25 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         return frc
     }()
     
+    
+    //MARK: ModelViewController instance
     let modelViewController = ModelViewController()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.observeShouldReloadData()
         self.updateNavBarTheme()
-        
     }
     
-    //observer for needtoReloadData
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let layout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.sectionHeadersPinToVisibleBounds = true
+    }
+    
+    
+    //MARK: Observer for updated datas
     func observeShouldReloadData() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .needtoReloadData, object: nil)
     }
@@ -40,7 +51,7 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     }
     
     
-    //update NavBar based on userDefault value for key: shouldshowwhitetheme
+    //MARK: Upate navigation bar theme
     private func updateNavBarTheme() {
         let userDefaults = UserDefaults.standard
         if userDefaults.bool(forKey: .shouldShowWhiteTheme) == true {
@@ -57,17 +68,7 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         }
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let layout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.sectionHeadersPinToVisibleBounds = true
-    }
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // MARK: - Navigation - Prepare segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetail" {
             guard let destVC = segue.destination as? DetailViewController,
@@ -103,8 +104,8 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     }
     
     
-    //delegate required method//
-    //confetti view
+    //MARK: Required methods for SectionHeaderDelegate
+    //confetti view method
     func showConfettiAnimation() {
         
         let confettiView = SAConfettiView(frame: self.view.bounds)
@@ -113,24 +114,22 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         confettiView.intensity = 0.75
         confettiView.startConfetti()
         
-        //UIAlert part
-        let alert = UIAlertController(title: "Congrats on completing them all!!", message: "congrats!", preferredStyle: .actionSheet)
+        //UIAlerts - Okay and Reset
+        let alert = UIAlertController(title: "Congratulations!", message: "You studied all civics questions", preferredStyle: .actionSheet)
         
-        let okayAction = UIAlertAction(title: "Okay I am done studying", style: .default) { (_) in
-            //add stop confetti() and exit out
+        let okayAction = UIAlertAction(title: "Okay, I am ready for the test", style: .default) { (_) in
+    
             confettiView.stopConfetti()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
                 confettiView.removeFromSuperview()
             })
-            //how do i delay a second or two
         }
-        let resetAction = UIAlertAction(title: "Reset - I want to review them all again", style: .default) { (_) in
-            //add reset the view of the main collection view - stop confetti() and exit out
+        let resetAction = UIAlertAction(title: "Reset", style: .default) { (_) in
+        
             confettiView.stopConfetti()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
                 confettiView.removeFromSuperview()
-                //add reset here - using predicate to bring all datas that have false value and change them to true and reload collectionView after changing them
-                //or fetchedResultsController.objects -> false
+    
                 self.reset()
             })
         }
@@ -141,9 +140,9 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         self.present(alert, animated: true, completion: nil)
     }
     
-    //reset using objects from fetchedResultsController
+    //private method for reset()
     private func reset() {
-        //objects from fetchedResultsController vs objects through NSPredicate (for specific ones??)
+        //objects from fetchedResultsController
         let objects: [Question] = self.fetchedResultsController.fetchedObjects!
         let completedQuestions = objects.filter{$0.isCompleted == true}
         for i in completedQuestions {
@@ -154,39 +153,17 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     }
     
     
-    //using NSPredicate to show isCompleted true value objects but it seems like NSPredicate is only for unique values??
-    private func resetThroughNSPredicate() {
-        let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
-        backgroundContext.performAndWait {
-            //getting the specific object from persistentStore - CoreData
-            if let objects = self.modelViewController.fetchTrueQuestionsFromPersistentStore(for: true, context: backgroundContext) {
-                for i in objects {
-                    i.isCompleted = false
-                }
-            } else {
-                print("there is an error in updating question object from persistent store")
-            }
-            
-            do {
-                try backgroundContext.save()
-            } catch {
-                NSLog("there is an error in saving the data as backgroundContext")
-            }
-        }
-    }
-    
-    
-    //UIAlerts
+    //UIAlerts for progress check
     func showAlertTwentyFive() {
         let alert = UIAlertController(title: "25% Done", message: "Studied 25 out of 100", preferredStyle: .alert)
-        let okayAction = UIAlertAction(title: "Keep it up! you can do this!", style: .default, handler: nil)
+        let okayAction = UIAlertAction(title: "Keep it up! You can do this!", style: .default, handler: nil)
         alert.addAction(okayAction)
         self.present(alert, animated: true, completion: nil)
     }
     
     func showAlertFifty() {
         let alert = UIAlertController(title: "50% Done", message: "Studied 50 out of 100", preferredStyle: .alert)
-        let okayAction = UIAlertAction(title: "Keep it up! you can do this!", style: .default, handler: nil)
+        let okayAction = UIAlertAction(title: "Keep it up!", style: .default, handler: nil)
         alert.addAction(okayAction)
         self.present(alert, animated: true, completion: nil)
     }
@@ -200,11 +177,27 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     
     
     
-    
-    
-    
-    
-    private func loadImage(for cell: UICollectionViewCell, indexPath: IndexPath) {
-        //how to add NSOperations with cancelling fetching datas from coreData is it even possible?
-    }
+    //Extra - resetting the datas based on datas being fetched through NSPredicate
+    /*
+     //using NSPredicate to show isCompleted true value objects but it seems like NSPredicate is only for unique values??
+     private func resetThroughNSPredicate() {
+     let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
+     backgroundContext.performAndWait {
+     //getting the specific object from persistentStore - CoreData
+     if let objects = self.modelViewController.fetchTrueQuestionsFromPersistentStore(for: true, context: backgroundContext) {
+     for i in objects {
+     i.isCompleted = false
+     }
+     } else {
+     print("there is an error in updating question object from persistent store")
+     }
+     
+     do {
+     try backgroundContext.save()
+     } catch {
+     NSLog("there is an error in saving the data as backgroundContext")
+     }
+     }
+     }
+     */
 }

@@ -7,14 +7,12 @@
 //
 
 import Foundation
-import UIKit
 
-//work on this later with confetti
 protocol SectionHeaderDelegate {
-    //show confetti
+    //Show confetti
     func showConfettiAnimation()
     
-    //UIAlerts
+    //UIAlert progress messages
     func showAlertTwentyFive()
     func showAlertFifty()
     func showAlertSeventyFive()

@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    
+    //MARK: Outlets
     @IBOutlet weak var switchButton: UISwitch!
     @IBOutlet weak var animationSwitchButton: UISwitch!
     @IBOutlet weak var brightModeLabel: UILabel!
@@ -20,11 +22,9 @@ class SettingsViewController: UIViewController {
         self.updateViews()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
-    //switch button for bright mmode
+    //MARK: Buttons
+    //switch button for setting the theme
     @IBAction func switchButtonTapped(_ sender: UISwitch) {
         let userDefaults = UserDefaults.standard
         userDefaults.set(sender.isOn, forKey: .shouldShowWhiteTheme)
@@ -36,7 +36,6 @@ class SettingsViewController: UIViewController {
             self.updateViewstoDefault()
         }
     }
-    
     //switch button for answer animation
     @IBAction func animationSwitchButtonTapped(_ sender: UISwitch) {
         let userDefaults = UserDefaults.standard
@@ -44,7 +43,7 @@ class SettingsViewController: UIViewController {
     }
     
     
-    
+    //MARK: Updateview and Theme
     private func updateViews() {
         guard isViewLoaded else {return}
         let userDefaults = UserDefaults.standard
@@ -55,7 +54,6 @@ class SettingsViewController: UIViewController {
         }
         animationSwitchButton.isOn = !userDefaults.bool(forKey: .noAnswerAnimtaion)
     }
-    
     private func updateViewstoWhite() {
         //tabBar
         self.tabBarController?.tabBar.barTintColor = .white
@@ -68,9 +66,7 @@ class SettingsViewController: UIViewController {
         self.navigationController?.navigationBar.largeTitleTextAttributes = textAattributes
         self.brightModeLabel.textColor = .white
         self.animationLabel.textColor = .white
-        
     }
-    
     private func updateViewstoDefault() {
         //tabBar
         self.tabBarController?.tabBar.barTintColor = #colorLiteral(red: 0.0995137468, green: 0.263354212, blue: 0.4718250036, alpha: 1)

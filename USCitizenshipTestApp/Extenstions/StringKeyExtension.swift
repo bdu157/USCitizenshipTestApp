@@ -11,4 +11,5 @@ import Foundation
 extension String {
     static var shouldShowWhiteTheme = "ShouldShowWhiteTheme"
     static var noAnswerAnimtaion = "NoAnswerAnimation"
+    static var loadDataValueKey = "loadDataValueKey"
 }
