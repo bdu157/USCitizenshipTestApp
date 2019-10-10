@@ -12,6 +12,8 @@ import Lottie
 
 class SectionHeader: UICollectionReusableView {
     
+    
+    //MARK: Outlets and propreties
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var countLabel: UILabel!
     @IBOutlet private weak var animationView: UIView!
@@ -21,8 +23,6 @@ class SectionHeader: UICollectionReusableView {
     
     let animationSubView = AnimationView()
     
-    //another filename
-    
     var questions: [Question]? = [] {
         didSet {
             self.updateViews()
@@ -31,14 +31,13 @@ class SectionHeader: UICollectionReusableView {
     
     var delegate: SectionHeaderDelegate?
     
+    //MARK: UpdateViews
     private func updateViews() {
-        
         //this will update counts for studying and finisehd
         if let questions = questions {
             self.getStudyingQuestionsCount(for: questions)
             self.getFinishedQuestionsCount(for: questions)
         }
-        
         animationSubView.frame = CGRect(x:0, y:0, width: 100, height:100)
         let studyingAnimation = Animation.named("studying3")
         animationSubView.animation = studyingAnimation
@@ -47,37 +46,30 @@ class SectionHeader: UICollectionReusableView {
         self.animationView.addSubview(animationSubView)
         animationSubView.play()
     }
-    
-    /*
-     //random file name
-     private var randomFileName: String {
-     var filenames: [String] = ["studying1", "studying2", "studying3"]
-     let randomNumber = Int.random(in: 0...2)
-     let randomName = filenames[randomNumber]
-     return randomName
-     }
-     */
-    
-    
+    //private methods for updateViews
     private func getStudyingQuestionsCount(for questions: [Question]) {
         let studyingQuestions =  questions.filter{$0.isCompleted == false}
         self.countLabel.text = "\(studyingQuestions.count)"
-        //self.titleLabel.text = "Studying"
     }
     
     private func getFinishedQuestionsCount(for questions: [Question]) {
         let finishedQuestions = questions.filter {$0.isCompleted == true}
         self.finishedCountLabel.text = "\(finishedQuestions.count)"
-        if finishedQuestions.count == 8 {
+        self.alertMessages(for: finishedQuestions.count)
+    }
+
+    private func alertMessages(for finishedQuestionsCount: Int) {
+        switch finishedQuestionsCount {
+        case 8:
             delegate?.showConfettiAnimation()
-            //self.finishedTitleLable.text = "Finished"
-        } else if finishedQuestions.count == 5 {
+        case 9:
             delegate?.showAlertTwentyFive()
-        } else  if finishedQuestions.count == 6 {
+        case 10:
             delegate?.showAlertFifty()
-        } else if finishedQuestions.count == 7 {
+        case 11:
             delegate?.showAlertSeventyFive()
+        default:
+            break
         }
     }
-    
 }

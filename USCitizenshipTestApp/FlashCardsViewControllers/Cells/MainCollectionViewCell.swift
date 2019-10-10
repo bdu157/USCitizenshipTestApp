@@ -11,6 +11,8 @@ import CoreData
 
 class MainCollectionViewCell: UICollectionViewCell {
     
+    
+    //MARK: Outlets
     @IBOutlet weak var finishedLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
@@ -18,7 +20,6 @@ class MainCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         imageView.layer.cornerRadius = 14
     }
-    
     
     var question: Question? {
         didSet {

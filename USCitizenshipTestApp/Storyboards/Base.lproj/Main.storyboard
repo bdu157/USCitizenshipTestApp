@@ -21,30 +21,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="Z2X-4D-j6Q" kind="relationship" relationship="viewControllers" id="32U-ZM-4qd"/>
-                        <segue destination="Ybp-5P-jhu" kind="relationship" relationship="viewControllers" id="I7s-HD-IyI"/>
                         <segue destination="45w-FW-gJm" kind="relationship" relationship="viewControllers" id="dIn-ps-Loa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LbL-aU-7bJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-331" y="-672"/>
-        </scene>
-        <!--Profile & Background-->
-        <scene sceneID="98E-ml-n6c">
-            <objects>
-                <viewController id="Njy-4F-EVu" customClass="InfoViewController" customModule="USCitizenshipTestApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="45x-HU-bPe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="wOk-NC-K4U"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Profile &amp; Background" id="V9I-Ol-ZO1"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cFO-z2-w0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1396" y="-1155.6650246305419"/>
+            <point key="canvasLocation" x="751" y="-1118"/>
         </scene>
         <!--Settings-->
         <scene sceneID="76E-DC-zk7">
@@ -169,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3q-QS-Myi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2927.1999999999998" y="-655.41871921182269"/>
+            <point key="canvasLocation" x="2374" y="-607"/>
         </scene>
         <!--FlashCards-->
         <scene sceneID="7dp-wy-Zfd">
@@ -295,7 +277,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kag-n4-mac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="894" y="30"/>
+            <point key="canvasLocation" x="-4" y="-245"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="5Oz-1K-nNw">
@@ -447,7 +429,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1698" y="30"/>
+            <point key="canvasLocation" x="750" y="-245"/>
         </scene>
         <!--FlashCards-->
         <scene sceneID="qCW-vh-jDw">
@@ -468,7 +450,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VzJ-7J-Lfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="94" y="30"/>
+            <point key="canvasLocation" x="-732" y="-245"/>
         </scene>
         <!--Settings-->
         <scene sceneID="hfz-F8-yfu">
@@ -489,28 +471,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNp-8H-nuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2135.1999999999998" y="-655.41871921182269"/>
-        </scene>
-        <!--Info-->
-        <scene sceneID="0Og-ov-bWW">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ybp-5P-jhu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Info" image="info" id="enT-Xu-ct9">
-                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="0XH-DY-9py">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Njy-4F-EVu" kind="relationship" relationship="rootViewController" id="iyF-0k-YAR"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xJF-ez-LeX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="609" y="-1156"/>
+            <point key="canvasLocation" x="1660" y="-607"/>
         </scene>
     </scenes>
     <resources>
@@ -518,7 +479,6 @@
         <image name="background" width="3840" height="5760"/>
         <image name="background1" width="736" height="1309"/>
         <image name="flashCards" width="33.333332061767578" height="33.333332061767578"/>
-        <image name="info" width="33.333332061767578" height="33.333332061767578"/>
         <image name="settings" width="33.333332061767578" height="33.333332061767578"/>
         <image name="thumbsup" width="160" height="160"/>
     </resources>

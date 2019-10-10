@@ -11,6 +11,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    
+    //MARK: Outlets and properties
     @IBOutlet weak var questionImageView: UIImageView!
     @IBOutlet weak var seeAnswerButton: UIButton!
     @IBOutlet weak var thumbLabel: UILabel!
@@ -28,6 +30,7 @@ class DetailViewController: UIViewController {
     var divisor: CGFloat!
     
     var modelViewController: ModelViewController!
+    
     var question: Question? {
         didSet {
             self.updateViews()
@@ -48,6 +51,28 @@ class DetailViewController: UIViewController {
         self.seeAnswerButton.isHidden = false
         self.card.layer.borderColor = UIColor.white.cgColor
         
+        self.updateTheme()
+    }
+    
+    
+    //MARK: UpdateView and theme
+    //updateview
+    private func updateViews() {
+        guard isViewLoaded else {return}
+        if let question = question {
+            DispatchQueue.main.async {
+                self.questionImageView.image = UIImage(named: question.questionPhoto!)
+            }
+            if question.isCompleted == true {
+                self.thumbLabel?.text = "👍"
+                self.thumbLabel?.isHidden = false
+            } else {
+                self.thumbLabel?.isHidden = true
+            }
+        }
+    }
+    //updateTheme
+    private func updateTheme() {
         let userDefaults = UserDefaults.standard
         if userDefaults.bool(forKey: .shouldShowWhiteTheme) == true {
             let mainColorBlue = #colorLiteral(red: 0.1651235223, green: 0.3135112226, blue: 0.5044639707, alpha: 1)
@@ -63,22 +88,8 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func updateViews() {
-        guard isViewLoaded else {return}
-        if let question = question {
-            DispatchQueue.main.async {
-                self.questionImageView.image = UIImage(named: question.questionPhoto!)
-            }
-            if question.isCompleted == true {
-                self.thumbLabel?.text = "👍"
-                self.thumbLabel?.isHidden = false
-            } else {
-                self.thumbLabel?.isHidden = true
-            }
-        }
-    }
     
-    
+    //MARK: Tab to see the answer button
     let randomNumber = Int.random(in: 1...3)
     
     @IBAction func toSeeAnswerButtonTapped(_ sender: Any) {
@@ -86,7 +97,7 @@ class DetailViewController: UIViewController {
         self.seeAnswerButton.isHidden = true
         
         let userDefaults = UserDefaults.standard
-
+        
         
         if let question = self.question {
             
@@ -123,8 +134,7 @@ class DetailViewController: UIViewController {
             }
         }
     }
-    
-    //for long answers
+    //TextView for long answers
     private func checkphotoNumber(for question: Question) -> Bool {
         let numArray = ["36", "55", "64", "87", "92"]
         var isContained: Bool = false
@@ -139,40 +149,37 @@ class DetailViewController: UIViewController {
     }
     
     
+    //MARK: Buttons
     @IBAction func dismissButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func studyMoreButtonTapped(_ sender: Any) {
-        
         guard let question = question else {return}
         self.modelViewController.studyMore(for: question)
-        //add notification here
+        //notification here so reloadData() only occurs when there is an update
         NotificationCenter.default.post(name: .needtoReloadData, object: self)
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func gotItButtonTapped(_ sender: Any) {
-        
         guard let question = question else {return}
         self.modelViewController.finished(for: question)
-
-        //add notification here
+        //notification here so reloadData() only occurs when there is an update
         NotificationCenter.default.post(name: .needtoReloadData, object: self)
         self.dismiss(animated: true, completion: nil)
     }
     
+    
+    //MARK: PanGestureRecognizer for swiping right and left
     @IBAction func panCard(_ sender: UIPanGestureRecognizer) {
         let card = sender.view!
-        let point = sender.translation(in: card) //how far you moved
+        let point = sender.translation(in: card) //how far you move
         let xFromCenter = card.center.x - view.center.x
-        
         //100/2 = 50/0.61 degree number = 81.967
         card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
-        
         //let scale = min(100/abs(xFromCenter), 1)
         card.transform = CGAffineTransform(rotationAngle: xFromCenter/divisor)
-        
         
         if xFromCenter > 0 {
             thumbImageView.image = #imageLiteral(resourceName: "thumbsup")
@@ -184,17 +191,15 @@ class DetailViewController: UIViewController {
         
         thumbImageView.alpha = abs(xFromCenter) / view.center.x
         
-        
         if sender.state == UIGestureRecognizer.State.ended {
             
             print("sender.state.ended is getting called")
             if card.center.x < 75 {
                 //move off to the left side
-                print("areas before swipe right animation happens")
                 UIView.animate(withDuration: 0.3) {
                     card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
                     card.alpha = 0
-                    print("swipe right action and animation called ")
+                    print("swipe left action and animation called ")
                 }
                 self.gotItAndStudyMore()
                 return
@@ -204,6 +209,7 @@ class DetailViewController: UIViewController {
                 UIView.animate(withDuration: 0.3) {
                     card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
                     card.alpha = 0
+                    print("swipe right action and animation called ")
                 }
                 self.gotItAndStudyMore()
                 return
@@ -216,7 +222,7 @@ class DetailViewController: UIViewController {
             }
         }
     }
-    
+    //private method to update datas based on right or left swipe
     private func gotItAndStudyMore() {
         guard let question = self.question else {return}
         let target = card.center.x
@@ -226,29 +232,10 @@ class DetailViewController: UIViewController {
         } else if target < 75 {
             self.modelViewController.studyMore(for: question)
         }
-        //add notification here
+        //notification here so reloadData() only occurs when there is an update
         NotificationCenter.default.post(name: .needtoReloadData, object: self)
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-    //animations for answer
-    /* - never used
-     private func animationForAnswer() {
-     let animBlock = {
-     
-     UILabel.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.3, animations: {
-     self.answerLabel.backgroundColor = UIColor(red: CGFloat(Int.random(in: 0...255)) / 255, green: CGFloat(Int.random(in: 0...255)) / 255, blue: CGFloat(Int.random(in: 0...255)) / 255, alpha: 1)
-     })
-     
-     UILabel.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.4, animations: {
-     self.answerLabel.transform = .identity
-     self.answerLabel.alpha = 1.0
-     })
-     }
-     UILabel.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: animBlock, completion: nil)
-     }
-     */
 }
 
 

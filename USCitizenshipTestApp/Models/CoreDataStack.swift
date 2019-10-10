@@ -20,8 +20,8 @@ class CoreDataStack {
                 fatalError("Failed to load persistent stores: \(error)")
             }
         })
-        //add merging from Parent context
-        container.viewContext.automaticallyMergesChangesFromParent = true   //this can be tested if someone adds new input to the server
+        //add merging from Parent context - backgroundContext (child) -> mainContext (parent)
+        container.viewContext.automaticallyMergesChangesFromParent = true
         return container
     }()
     
@@ -29,7 +29,4 @@ class CoreDataStack {
     var mainContext: NSManagedObjectContext {
         return self.container.viewContext
     }
-    
-    //add save method for fetched data from firebase
-    
 }

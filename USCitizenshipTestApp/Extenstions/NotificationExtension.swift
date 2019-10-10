@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 extension Notification.Name {
     static var needtoReloadData = Notification.Name("needtoReloadData")

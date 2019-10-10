@@ -8,10 +8,10 @@
 
 import Foundation
 import CoreData
-//this is for initializing but we are not initializing anything in this app is just updating boolean on decoded file
+//this app is not creating any new value and this is just for putting all datas (jsonfile) into persistentStore(coreData)
 
 extension Question {
-    convenience init(questionPhoto: String, isCompleted: Bool, answer: String, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult convenience init(questionPhoto: String, isCompleted: Bool, answer: String, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.questionPhoto = questionPhoto
         self.isCompleted = isCompleted
