@@ -60,14 +60,14 @@ class SectionHeader: UICollectionReusableView {
 
     private func alertMessages(for finishedQuestionsCount: Int) {
         switch finishedQuestionsCount {
-        case 8:
-            delegate?.showConfettiAnimation()
-        case 9:
+        case 25:
             delegate?.showAlertTwentyFive()
-        case 10:
+        case 50:
             delegate?.showAlertFifty()
-        case 11:
+        case 75:
             delegate?.showAlertSeventyFive()
+        case 100:
+            delegate?.showConfettiAnimation()
         default:
             break
         }
