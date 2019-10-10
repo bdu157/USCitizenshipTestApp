@@ -63,14 +63,6 @@ class DetailViewController: UIViewController {
         }
     }
     
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    
     func updateViews() {
         guard isViewLoaded else {return}
         if let question = question {
@@ -147,24 +139,6 @@ class DetailViewController: UIViewController {
     }
     
     
-    //animations for answer
-    /* - never used
-    private func animationForAnswer() {
-        let animBlock = {
-            
-            UILabel.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.3, animations: {
-                self.answerLabel.backgroundColor = UIColor(red: CGFloat(Int.random(in: 0...255)) / 255, green: CGFloat(Int.random(in: 0...255)) / 255, blue: CGFloat(Int.random(in: 0...255)) / 255, alpha: 1)
-            })
-            
-            UILabel.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.4, animations: {
-                self.answerLabel.transform = .identity
-                self.answerLabel.alpha = 1.0
-            })
-        }
-        UILabel.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: animBlock, completion: nil)
-    }
-    */
-    
     @IBAction func dismissButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -172,21 +146,7 @@ class DetailViewController: UIViewController {
     @IBAction func studyMoreButtonTapped(_ sender: Any) {
         
         guard let question = question else {return}
-        let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
-        backgroundContext.performAndWait {
-            //getting the specific object from persistentStore - CoreData
-            if let object = self.modelViewController.fetchSingleQuestionFromPersistentStore(for: question.questionPhoto!, context: backgroundContext) {
-                self.modelViewController.updateToStudyMore(question: object)
-            } else {
-                print("there is an error in updating question object from persistent store")
-            }
-            
-            do {
-                try backgroundContext.save()
-            } catch {
-                NSLog("there is an error in saving the data as backgroundContext")
-            }
-        }
+        self.modelViewController.studyMore(for: question)
         //add notification here
         NotificationCenter.default.post(name: .needtoReloadData, object: self)
         self.dismiss(animated: true, completion: nil)
@@ -195,21 +155,8 @@ class DetailViewController: UIViewController {
     @IBAction func gotItButtonTapped(_ sender: Any) {
         
         guard let question = question else {return}
-        let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
-        backgroundContext.performAndWait {
-            //getting the specific object from persistentStore - CoreData
-            if let object = self.modelViewController.fetchSingleQuestionFromPersistentStore(for: question.questionPhoto!, context: backgroundContext) {
-                self.modelViewController.updateToFinished(question: object)
-            } else {
-                print("there is an error in updating question object from persistent store")
-            }
-            
-            do {
-                try backgroundContext.save()
-            } catch {
-                NSLog("there is an error in saving the data as backgroundContext")
-            }
-        }
+        self.modelViewController.finished(for: question)
+
         //add notification here
         NotificationCenter.default.post(name: .needtoReloadData, object: self)
         self.dismiss(animated: true, completion: nil)
@@ -275,42 +222,33 @@ class DetailViewController: UIViewController {
         let target = card.center.x
         
         if target >= 75 {
-            let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
-            backgroundContext.performAndWait {
-                //getting the specific object from persistentStore - CoreData
-                if let object = self.modelViewController.fetchSingleQuestionFromPersistentStore(for: question.questionPhoto!, context: backgroundContext) {
-                    self.modelViewController.updateToFinished(question: object)
-                } else {
-                    print("there is an error in updating question object from persistent store")
-                }
-                
-                do {
-                    try backgroundContext.save()
-                } catch {
-                    NSLog("there is an error in saving the data as backgroundContext")
-                }
-            }
+            self.modelViewController.finished(for: question)
         } else if target < 75 {
-            let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
-            backgroundContext.performAndWait {
-                //getting the specific object from persistentStore - CoreData
-                if let object = self.modelViewController.fetchSingleQuestionFromPersistentStore(for: question.questionPhoto!, context: backgroundContext) {
-                    self.modelViewController.updateToStudyMore(question: object)
-                } else {
-                    print("there is an error in updating question object from persistent store")
-                }
-                
-                do {
-                    try backgroundContext.save()
-                } catch {
-                    NSLog("there is an error in saving the data as backgroundContext")
-                }
-            }
+            self.modelViewController.studyMore(for: question)
         }
         //add notification here
         NotificationCenter.default.post(name: .needtoReloadData, object: self)
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
+    //animations for answer
+    /* - never used
+     private func animationForAnswer() {
+     let animBlock = {
+     
+     UILabel.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.3, animations: {
+     self.answerLabel.backgroundColor = UIColor(red: CGFloat(Int.random(in: 0...255)) / 255, green: CGFloat(Int.random(in: 0...255)) / 255, blue: CGFloat(Int.random(in: 0...255)) / 255, alpha: 1)
+     })
+     
+     UILabel.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.4, animations: {
+     self.answerLabel.transform = .identity
+     self.answerLabel.alpha = 1.0
+     })
+     }
+     UILabel.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: animBlock, completion: nil)
+     }
+     */
 }
 
 

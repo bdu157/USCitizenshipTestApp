@@ -154,28 +154,6 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     }
     
     
-    //using NSPredicate to show isCompleted true value objects but it seems like NSPredicate is only for unique values??
-    private func resetThroughNSPredicate() {
-        let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
-        backgroundContext.performAndWait {
-            //getting the specific object from persistentStore - CoreData
-            if let objects = self.modelViewController.fetchTrueQuestionsFromPersistentStore(for: true, context: backgroundContext) {
-                for i in objects {
-                    i.isCompleted = false
-                }
-            } else {
-                print("there is an error in updating question object from persistent store")
-            }
-            
-            do {
-                try backgroundContext.save()
-            } catch {
-                NSLog("there is an error in saving the data as backgroundContext")
-            }
-        }
-    }
-    
-    
     //UIAlerts
     func showAlertTwentyFive() {
         let alert = UIAlertController(title: "25% Done", message: "Studied 25 out of 100", preferredStyle: .alert)
@@ -199,12 +177,26 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     }
     
     
-    
-    
-    
-    
-    
-    private func loadImage(for cell: UICollectionViewCell, indexPath: IndexPath) {
-        //how to add NSOperations with cancelling fetching datas from coreData is it even possible?
-    }
+    /*
+     //using NSPredicate to show isCompleted true value objects but it seems like NSPredicate is only for unique values??
+     private func resetThroughNSPredicate() {
+     let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
+     backgroundContext.performAndWait {
+     //getting the specific object from persistentStore - CoreData
+     if let objects = self.modelViewController.fetchTrueQuestionsFromPersistentStore(for: true, context: backgroundContext) {
+     for i in objects {
+     i.isCompleted = false
+     }
+     } else {
+     print("there is an error in updating question object from persistent store")
+     }
+     
+     do {
+     try backgroundContext.save()
+     } catch {
+     NSLog("there is an error in saving the data as backgroundContext")
+     }
+     }
+     }
+     */
 }
