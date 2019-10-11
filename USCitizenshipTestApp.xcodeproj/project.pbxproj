@@ -26,6 +26,8 @@
 		0BB23D972331256A0098485F /* studying3.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB23D962331256A0098485F /* studying3.json */; };
 		0BC0D99B232E475B00ED1C7B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC0D99A232E475B00ED1C7B /* DetailViewController.swift */; };
 		0BC57916232BD20A003DBB14 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC57915232BD20A003DBB14 /* SectionHeader.swift */; };
+		0BE5733D234FA74300A53761 /* FlashCards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BE5733B234FA74200A53761 /* FlashCards.storyboard */; };
+		0BE5733E234FA74300A53761 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BE5733C234FA74300A53761 /* Settings.storyboard */; };
 		0BFC105D2343B6E000194D50 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC105C2343B6E000194D50 /* UILabelExtension.swift */; };
 		0BFF0DCC2334F29C00BC2A26 /* SectionHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFF0DCB2334F29C00BC2A26 /* SectionHeaderDelegate.swift */; };
 		60578310922612665B0AD3F6 /* Pods_USCitizenshipTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38830CFDC14AC504F775EBEC /* Pods_USCitizenshipTestApp.framework */; };
@@ -53,6 +55,8 @@
 		0BB23D962331256A0098485F /* studying3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = studying3.json; sourceTree = "<group>"; };
 		0BC0D99A232E475B00ED1C7B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0BC57915232BD20A003DBB14 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		0BE5733B234FA74200A53761 /* FlashCards.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FlashCards.storyboard; sourceTree = "<group>"; };
+		0BE5733C234FA74300A53761 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		0BFC105C2343B6E000194D50 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		0BFF0DCB2334F29C00BC2A26 /* SectionHeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderDelegate.swift; sourceTree = "<group>"; };
 		38830CFDC14AC504F775EBEC /* Pods_USCitizenshipTestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USCitizenshipTestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				0B349408231BABA000861CFD /* Main.storyboard */,
+				0BE5733C234FA74300A53761 /* Settings.storyboard */,
+				0BE5733B234FA74200A53761 /* FlashCards.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -309,10 +315,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BB23D972331256A0098485F /* studying3.json in Resources */,
+				0BE5733D234FA74300A53761 /* FlashCards.storyboard in Resources */,
 				0B34940F231BABA200861CFD /* LaunchScreen.storyboard in Resources */,
 				0B34940C231BABA200861CFD /* Assets.xcassets in Resources */,
 				0B34940A231BABA000861CFD /* Main.storyboard in Resources */,
 				0BAB0757231C25DF002983F8 /* questions.json in Resources */,
+				0BE5733E234FA74300A53761 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

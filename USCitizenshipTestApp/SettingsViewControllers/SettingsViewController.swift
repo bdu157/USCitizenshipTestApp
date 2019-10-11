@@ -16,6 +16,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var animationSwitchButton: UISwitch!
     @IBOutlet weak var brightModeLabel: UILabel!
     @IBOutlet weak var animationLabel: UILabel!
+    @IBOutlet weak var resetButtonLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -42,6 +43,12 @@ class SettingsViewController: UIViewController {
         userDefaults.set(!sender.isOn, forKey: .noAnswerAnimtaion)
     }
     
+    //reset button
+    @IBAction func resetButtonTapped(_ sender: Any) {
+        NotificationCenter.default.post(name: .needtoResetData, object: self)
+        self.resetButtonLabel.shake()
+    }
+    
     
     //MARK: Updateview and Theme
     private func updateViews() {
@@ -51,6 +58,7 @@ class SettingsViewController: UIViewController {
         if switchButton.isOn {
             self.brightModeLabel.textColor = .white
             self.animationLabel.textColor = .white
+            self.resetButtonLabel.textColor = .white
         }
         animationSwitchButton.isOn = !userDefaults.bool(forKey: .noAnswerAnimtaion)
     }
@@ -66,6 +74,7 @@ class SettingsViewController: UIViewController {
         self.navigationController?.navigationBar.largeTitleTextAttributes = textAattributes
         self.brightModeLabel.textColor = .white
         self.animationLabel.textColor = .white
+        self.resetButtonLabel.textColor = .white
     }
     private func updateViewstoDefault() {
         //tabBar
@@ -78,5 +87,6 @@ class SettingsViewController: UIViewController {
         self.navigationController?.navigationBar.largeTitleTextAttributes = textAattributes
         self.brightModeLabel.textColor = .black
         self.animationLabel.textColor = .black
+        self.resetButtonLabel.textColor = .black
     }
 }

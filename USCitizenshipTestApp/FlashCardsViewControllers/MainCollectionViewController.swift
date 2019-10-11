@@ -30,7 +30,6 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.observeShouldReloadData()
         self.updateNavBarTheme()
     }
     
@@ -39,6 +38,9 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         
         let layout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionHeadersPinToVisibleBounds = true
+        
+        self.observeShouldReloadData()
+        self.observeShouldResetData()
     }
     
     
@@ -48,6 +50,14 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     }
     @objc func refreshViews(notification: Notification) {
         self.collectionView.reloadData()
+    }
+    
+    //MARK: Observer for resetting datas
+    func observeShouldResetData() {
+        NotificationCenter.default.addObserver(self, selector: #selector(resetData(notification:)), name: .needtoResetData, object: nil)
+    }
+    @objc func resetData(notification: Notification) {
+        self.reset()
     }
     
     
