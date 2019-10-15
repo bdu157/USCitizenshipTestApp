@@ -78,16 +78,16 @@ class DetailViewController: UIViewController {
         let userDefaults = UserDefaults.standard
         if userDefaults.bool(forKey: .shouldShowWhiteTheme) == true {
             let mainColorBlue = #colorLiteral(red: 0.1651235223, green: 0.3135112226, blue: 0.5044639707, alpha: 1)
-            self.answerLabel.textColor = .orange
-            self.seeAnswerButton.setTitleColor(.orange, for: .normal)
+            self.answerLabel.textColor = mainColorBlue
+            self.seeAnswerButton.setTitleColor(mainColorBlue, for: .normal)
             self.view.backgroundColor = .white
-            self.card.layer.borderColor = UIColor.orange.cgColor
-            self.dismissButton.setTitleColor(.orange, for: .normal)
-            self.studyMoreButton.setTitleColor(.orange, for: .normal)
-            self.gotitButton.setTitleColor(.orange, for: .normal)
-            self.card.backgroundColor = mainColorBlue
+            self.card.layer.borderColor = CGColor.init(srgbRed: 0.1651235223, green: 0.3135112226, blue: 0.5044639707, alpha: 1)
+            self.dismissButton.setTitleColor(mainColorBlue, for: .normal)
+            self.studyMoreButton.setTitleColor(mainColorBlue, for: .normal)
+            self.gotitButton.setTitleColor(mainColorBlue, for: .normal)
+            self.card.backgroundColor = .white
             self.card.layer.borderWidth = 1.0
-            self.questionView.backgroundColor = .orange
+            self.questionView.backgroundColor = mainColorBlue
             self.questionLabel.textColor = .white
         }
     }
