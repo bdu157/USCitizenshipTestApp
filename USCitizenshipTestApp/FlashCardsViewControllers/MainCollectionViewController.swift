@@ -41,6 +41,8 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
         
         self.observeShouldReloadData()
         self.observeShouldResetData()
+        self.observeShouldReloadDataForTheme()
+        self.observeShouldReloadDataForReverseTheme()
     }
     
     
@@ -48,6 +50,17 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     func observeShouldReloadData() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .needtoReloadData, object: nil)
     }
+    
+    //MARK: Observer for reloadData for Theme
+    func observeShouldReloadDataForTheme() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .needtoReloadDataForTheme, object: nil)
+    }
+    
+    //MARK: Observer for reloadData for reverseTheme
+    func observeShouldReloadDataForReverseTheme() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews(notification:)), name: .needtoReloadDataForReverseTheme, object: nil)
+    }
+    
     @objc func refreshViews(notification: Notification) {
         self.collectionView.reloadData()
     }
@@ -76,6 +89,8 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
             self.navigationController?.navigationBar.titleTextAttributes = textAttributes
             self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1578108668, green: 0.298258096, blue: 0.4726179838, alpha: 1)
         }
+        
+        
     }
     
     // MARK: - Navigation - Prepare segue

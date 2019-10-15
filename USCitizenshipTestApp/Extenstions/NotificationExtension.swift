@@ -11,4 +11,6 @@ import Foundation
 extension Notification.Name {
     static var needtoReloadData = Notification.Name("needtoReloadData")
     static var needtoResetData = Notification.Name("needtoResetData")
+    static var needtoReloadDataForTheme = Notification.Name("needtoReloadDataForTheme")
+    static var needtoReloadDataForReverseTheme = Notification.Name("needtoReloadDataForReverseTheme")
 }

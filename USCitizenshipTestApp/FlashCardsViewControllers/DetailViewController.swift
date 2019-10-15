@@ -13,8 +13,9 @@ class DetailViewController: UIViewController {
     
     
     //MARK: Outlets and properties
-    @IBOutlet weak var questionTextView: UITextView!
-
+    @IBOutlet weak var questionView: UIView!
+    @IBOutlet weak var questionLabel: UILabel!
+    
     @IBOutlet weak var seeAnswerButton: UIButton!
     @IBOutlet weak var thumbLabel: UILabel!
     @IBOutlet weak var thumbImageView: UIImageView!
@@ -42,13 +43,13 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
         
-        questionTextView.layer.cornerRadius = 14
+        questionView.layer.cornerRadius = 14
         divisor = (view.frame.width / 2) / 0.61
         card.isUserInteractionEnabled = true
         self.card.center = CGPoint(x: view.center.x, y: view.center.y)
         self.card.layer.borderWidth = 0.5
         self.card.layer.cornerRadius = 14
-        self.questionTextView.alpha = 0.93
+
         self.seeAnswerButton.isHidden = false
         self.card.layer.borderColor = UIColor.white.cgColor
         
@@ -62,7 +63,7 @@ class DetailViewController: UIViewController {
         guard isViewLoaded else {return}
         if let question = question {
             DispatchQueue.main.async {
-                self.questionTextView.text = question.question
+                self.questionLabel.text = question.question
             }
             if question.isCompleted == true {
                 self.thumbLabel?.text = "👍"
@@ -81,11 +82,13 @@ class DetailViewController: UIViewController {
             self.seeAnswerButton.setTitleColor(.orange, for: .normal)
             self.view.backgroundColor = .white
             self.card.layer.borderColor = UIColor.orange.cgColor
-            self.dismissButton.setTitleColor(mainColorBlue, for: .normal)
-            self.studyMoreButton.setTitleColor(mainColorBlue, for: .normal)
-            self.gotitButton.setTitleColor(mainColorBlue, for: .normal)
+            self.dismissButton.setTitleColor(.orange, for: .normal)
+            self.studyMoreButton.setTitleColor(.orange, for: .normal)
+            self.gotitButton.setTitleColor(.orange, for: .normal)
             self.card.backgroundColor = mainColorBlue
             self.card.layer.borderWidth = 1.0
+            self.questionView.backgroundColor = .orange
+            self.questionLabel.textColor = .white
         }
     }
     

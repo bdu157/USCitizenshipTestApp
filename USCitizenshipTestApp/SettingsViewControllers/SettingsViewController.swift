@@ -32,9 +32,10 @@ class SettingsViewController: UIViewController {
         
         if sender.isOn {
             self.updateViewstoWhite()
-            //NotificationCenter.default.post(name: .switchWasFlipped, object: self)
+            NotificationCenter.default.post(name: .needtoReloadDataForTheme, object: self)
         } else if !sender.isOn {
             self.updateViewstoDefault()
+            NotificationCenter.default.post(name: .needtoReloadDataForReverseTheme, object: self)
         }
     }
     //switch button for answer animation
