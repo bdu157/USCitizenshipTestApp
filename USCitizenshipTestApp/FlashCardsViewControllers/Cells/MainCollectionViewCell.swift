@@ -14,11 +14,17 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     //MARK: Outlets
     @IBOutlet weak var finishedLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
-    
+    @IBOutlet weak var questionNumberLabel: UILabel!
+    @IBOutlet weak var questionTextView: UITextView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        imageView.layer.cornerRadius = 14
+        self.layer.cornerRadius = 14
+        self.questionTextView.layer.cornerRadius = 14
+        self.questionTextView.layer.borderWidth = 0.3
+        self.questionTextView.layer.borderColor = UIColor.white.cgColor
+        self.questionTextView.textColor = .white
+        self.questionNumberLabel.layer.cornerRadius = 20
     }
     
     var question: Question? {
@@ -30,18 +36,24 @@ class MainCollectionViewCell: UICollectionViewCell {
     private func updateViews() {
         if let question = question {
             DispatchQueue.main.async {
-                let image = UIImage(named: question.questionPhoto!)
-                self.imageView.image = image
+                
+                self.questionNumberLabel.text = question.questionNumber
+                self.questionTextView.text = question.question
             }
             
             if question.isCompleted == true {
                 self.finishedLabel.text = "👍"
                 self.finishedLabel.isHidden = false
-                self.imageView.alpha = 0.2
+                self.alpha = 0.2
+                self.questionTextView.alpha = 0.2
+                self.questionNumberLabel.alpha = 0.2
+                
 
             } else if question.isCompleted == false {
                 self.finishedLabel.isHidden = true
-                self.imageView.alpha = 0.8
+                self.alpha = 0.8
+                self.questionTextView.alpha = 0.8
+                self.questionNumberLabel.alpha = 0.8
             }
         }
     }

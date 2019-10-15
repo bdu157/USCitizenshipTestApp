@@ -16,7 +16,7 @@ class MainCollectionViewController: UICollectionViewController, SectionHeaderDel
     //MARK: FetchedResultController
     lazy var fetchedResultsController: NSFetchedResultsController<Question> = {
         let fetchRequest: NSFetchRequest<Question> = Question.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "questionPhoto", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "questionNumber", ascending: true)]
         let moc = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self

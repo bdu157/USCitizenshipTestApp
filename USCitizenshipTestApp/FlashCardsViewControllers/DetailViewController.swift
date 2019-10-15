@@ -13,7 +13,8 @@ class DetailViewController: UIViewController {
     
     
     //MARK: Outlets and properties
-    @IBOutlet weak var questionImageView: UIImageView!
+    @IBOutlet weak var questionTextView: UITextView!
+
     @IBOutlet weak var seeAnswerButton: UIButton!
     @IBOutlet weak var thumbLabel: UILabel!
     @IBOutlet weak var thumbImageView: UIImageView!
@@ -41,13 +42,13 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
         
-        questionImageView.layer.cornerRadius = 14
+        questionTextView.layer.cornerRadius = 14
         divisor = (view.frame.width / 2) / 0.61
         card.isUserInteractionEnabled = true
         self.card.center = CGPoint(x: view.center.x, y: view.center.y)
         self.card.layer.borderWidth = 0.5
         self.card.layer.cornerRadius = 14
-        self.questionImageView.alpha = 0.93
+        self.questionTextView.alpha = 0.93
         self.seeAnswerButton.isHidden = false
         self.card.layer.borderColor = UIColor.white.cgColor
         
@@ -61,7 +62,7 @@ class DetailViewController: UIViewController {
         guard isViewLoaded else {return}
         if let question = question {
             DispatchQueue.main.async {
-                self.questionImageView.image = UIImage(named: question.questionPhoto!)
+                self.questionTextView.text = question.question
             }
             if question.isCompleted == true {
                 self.thumbLabel?.text = "👍"
@@ -138,7 +139,7 @@ class DetailViewController: UIViewController {
     private func checkphotoNumber(for question: Question) -> Bool {
         let numArray = ["36", "55", "64", "87", "92"]
         var isContained: Bool = false
-        let questionPhotoString = question.questionPhoto
+        let questionPhotoString = question.questionNumber
         
         for i in numArray {
             if questionPhotoString == i {

@@ -9,7 +9,8 @@
 import Foundation
 
 struct QuestionRepresentation: Equatable, Codable {
-    let questionPhoto: String
+    let questionNumber: String
+    let question: String
     var isCompleted: Bool
     let answer: String
 }

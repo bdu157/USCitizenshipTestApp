@@ -11,9 +11,10 @@ import CoreData
 //this app is not creating any new value and this is just for putting all datas (jsonfile) into persistentStore(coreData)
 
 extension Question {
-    @discardableResult convenience init(questionPhoto: String, isCompleted: Bool, answer: String, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult convenience init(questionNumber: String, question: String, isCompleted: Bool, answer: String, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
-        self.questionPhoto = questionPhoto
+        self.questionNumber = questionNumber
+        self.question = question
         self.isCompleted = isCompleted
         self.answer = answer
     }

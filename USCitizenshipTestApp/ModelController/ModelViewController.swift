@@ -32,7 +32,7 @@ class ModelViewController {
             let allQuestions = try JSONDecoder().decode([QuestionRepresentation].self, from: jsonData)
             
             for question in allQuestions {
-                Question(questionPhoto: question.questionPhoto, isCompleted: question.isCompleted, answer: question.answer)
+                Question(questionNumber: question.questionNumber, question: question.question, isCompleted: question.isCompleted, answer: question.answer)
             }
             
             self.saveToPersistentStore()
@@ -54,7 +54,7 @@ class ModelViewController {
         let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
         backgroundContext.performAndWait {
             //getting the specific object from persistentStore - CoreData
-            if let object = self.fetchSingleQuestionFromPersistentStore(for: question.questionPhoto!, context: backgroundContext) {
+            if let object = self.fetchSingleQuestionFromPersistentStore(for: question.questionNumber!, context: backgroundContext) {
                 self.updateToStudyMore(question: object)
             } else {
                 print("there is an error in updating question object from persistent store")
@@ -71,7 +71,7 @@ class ModelViewController {
     func finished(for question: Question) {
         let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
         backgroundContext.performAndWait {
-            if let object = self.fetchSingleQuestionFromPersistentStore(for: question.questionPhoto!, context: backgroundContext) {
+            if let object = self.fetchSingleQuestionFromPersistentStore(for: question.questionNumber!, context: backgroundContext) {
                 self.updateToFinished(question: object)
             } else {
                 print("there is an error in updating question object from persistent store")
@@ -100,7 +100,7 @@ class ModelViewController {
     private func fetchSingleQuestionFromPersistentStore(for questionPhotoString: String, context:NSManagedObjectContext) -> Question? {
         let fetchRequest: NSFetchRequest<Question> = Question.fetchRequest()
         
-        fetchRequest.predicate = NSPredicate(format: "questionPhoto == %@", questionPhotoString)
+        fetchRequest.predicate = NSPredicate(format: "questionNumber == %@", questionPhotoString)
         var result: Question? = nil
         context.performAndWait {
             do {
