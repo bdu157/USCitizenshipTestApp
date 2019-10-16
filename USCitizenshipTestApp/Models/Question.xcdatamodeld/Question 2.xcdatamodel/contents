@@ -3,9 +3,10 @@
     <entity name="Question" representedClassName="Question" syncable="YES" codeGenerationType="class">
         <attribute name="answer" attributeType="String"/>
         <attribute name="isCompleted" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="questionPhoto" attributeType="String"/>
+        <attribute name="question" attributeType="String"/>
+        <attribute name="questionNumber" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Question" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Question" positionX="-63" positionY="-18" width="128" height="103"/>
     </elements>
 </model>

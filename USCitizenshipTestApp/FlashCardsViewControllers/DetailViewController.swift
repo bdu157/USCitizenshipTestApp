@@ -11,9 +11,10 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    
     //MARK: Outlets and properties
-    @IBOutlet weak var questionImageView: UIImageView!
+    @IBOutlet weak var questionView: UIView!
+    @IBOutlet weak var questionLabel: UILabel!
+    
     @IBOutlet weak var seeAnswerButton: UIButton!
     @IBOutlet weak var thumbLabel: UILabel!
     @IBOutlet weak var thumbImageView: UIImageView!
@@ -41,13 +42,13 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
         
-        questionImageView.layer.cornerRadius = 14
+        questionView.layer.cornerRadius = 14
         divisor = (view.frame.width / 2) / 0.61
         card.isUserInteractionEnabled = true
         self.card.center = CGPoint(x: view.center.x, y: view.center.y)
         self.card.layer.borderWidth = 0.5
         self.card.layer.cornerRadius = 14
-        self.questionImageView.alpha = 0.93
+
         self.seeAnswerButton.isHidden = false
         self.card.layer.borderColor = UIColor.white.cgColor
         
@@ -61,7 +62,7 @@ class DetailViewController: UIViewController {
         guard isViewLoaded else {return}
         if let question = question {
             DispatchQueue.main.async {
-                self.questionImageView.image = UIImage(named: question.questionPhoto!)
+                self.questionLabel.text = question.question
             }
             if question.isCompleted == true {
                 self.thumbLabel?.text = "👍"
@@ -71,20 +72,24 @@ class DetailViewController: UIViewController {
             }
         }
     }
+    
     //updateTheme
     private func updateTheme() {
         let userDefaults = UserDefaults.standard
         if userDefaults.bool(forKey: .shouldShowWhiteTheme) == true {
             let mainColorBlue = #colorLiteral(red: 0.1651235223, green: 0.3135112226, blue: 0.5044639707, alpha: 1)
-            self.answerLabel.textColor = .orange
-            self.seeAnswerButton.setTitleColor(.orange, for: .normal)
+            self.answerLabel.textColor = mainColorBlue
+            self.textView.textColor = mainColorBlue
+            self.seeAnswerButton.setTitleColor(mainColorBlue, for: .normal)
             self.view.backgroundColor = .white
-            self.card.layer.borderColor = UIColor.orange.cgColor
+            self.card.layer.borderColor = CGColor.init(srgbRed: 0.1651235223, green: 0.3135112226, blue: 0.5044639707, alpha: 1)
             self.dismissButton.setTitleColor(mainColorBlue, for: .normal)
             self.studyMoreButton.setTitleColor(mainColorBlue, for: .normal)
             self.gotitButton.setTitleColor(mainColorBlue, for: .normal)
-            self.card.backgroundColor = mainColorBlue
+            self.card.backgroundColor = .white
             self.card.layer.borderWidth = 1.0
+            self.questionView.backgroundColor = mainColorBlue
+            self.questionLabel.textColor = .white
         }
     }
     
@@ -138,7 +143,7 @@ class DetailViewController: UIViewController {
     private func checkphotoNumber(for question: Question) -> Bool {
         let numArray = ["36", "55", "64", "87", "92"]
         var isContained: Bool = false
-        let questionPhotoString = question.questionPhoto
+        let questionPhotoString = question.questionNumber
         
         for i in numArray {
             if questionPhotoString == i {
