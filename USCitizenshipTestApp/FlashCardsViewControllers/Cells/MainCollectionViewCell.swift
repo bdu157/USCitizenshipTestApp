@@ -31,19 +31,27 @@ class MainCollectionViewCell: UICollectionViewCell {
     }
     
     private func updateViews() {
-        if let question = question {
-            self.questionNumberLabel.text = question.questionNumber
-            self.questionLabel.text = question.question
-            self.updateTheme()
+        guard let question = question else {return}
             
-            if question.isCompleted == true {
-                self.updateViewsonTrue()
-            } else if question.isCompleted == false {
-                self.updateViewsonFalse()
-            }
+        if question.questionNumber == "hundred" {
+            self.questionNumberLabel.text = "100"
+            self.updateViewsInside(for: question)
+        } else {
+            self.questionNumberLabel.text = question.questionNumber
+            self.updateViewsInside(for: question)
         }
     }
     
+    private func updateViewsInside(for question: Question) {
+        self.questionLabel.text = question.question
+        self.updateTheme()
+        
+        if question.isCompleted == true {
+            self.updateViewsonTrue()
+        } else if question.isCompleted == false {
+            self.updateViewsonFalse()
+        }
+    }
     
     //private methods for updateviews
     private func updateTheme() {

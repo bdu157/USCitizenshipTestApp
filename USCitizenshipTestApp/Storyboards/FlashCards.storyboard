@@ -50,10 +50,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9P-xM-slh">
-                                            <rect key="frame" x="2" y="29.5" width="164" height="118.5"/>
+                                            <rect key="frame" x="2" y="29.5" width="164" height="128.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -67,7 +67,7 @@
                                     <constraint firstAttribute="trailing" secondItem="fY1-7t-Yld" secondAttribute="trailing" constant="2" id="ez2-oQ-CZI"/>
                                     <constraint firstItem="UeH-rj-xB4" firstAttribute="top" secondItem="uM4-Ef-Dpw" secondAttribute="top" constant="4" id="puW-HM-1be"/>
                                     <constraint firstItem="UeH-rj-xB4" firstAttribute="leading" secondItem="uM4-Ef-Dpw" secondAttribute="leading" constant="5" id="qe6-f1-x0u"/>
-                                    <constraint firstAttribute="bottom" secondItem="R9P-xM-slh" secondAttribute="bottom" constant="20" id="rAp-VH-9Z4"/>
+                                    <constraint firstAttribute="bottom" secondItem="R9P-xM-slh" secondAttribute="bottom" constant="10" id="rAp-VH-9Z4"/>
                                     <constraint firstItem="fY1-7t-Yld" firstAttribute="top" secondItem="uM4-Ef-Dpw" secondAttribute="top" constant="2" id="tO7-kZ-8Va"/>
                                 </constraints>
                                 <connections>
@@ -99,13 +99,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Studying " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJT-yI-TzB">
                                                     <rect key="frame" x="0.0" y="0.0" width="81" height="28"/>
                                                     <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="20"/>
-                                                    <color key="textColor" red="0.22911491990089417" green="0.36905968189239502" blue="0.54345977306365967" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7z-7R-nze">
                                                     <rect key="frame" x="81" y="0.0" width="81" height="28"/>
                                                     <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="24"/>
-                                                    <color key="textColor" red="0.22911491990089417" green="0.36905968189239502" blue="0.54345977306365967" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -116,13 +116,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finished " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmM-A8-h3J">
                                                     <rect key="frame" x="0.0" y="0.0" width="81" height="28"/>
                                                     <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="20"/>
-                                                    <color key="textColor" red="0.22911491990089417" green="0.36905968189239502" blue="0.54345977306365967" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52F-wx-cQf">
                                                     <rect key="frame" x="81" y="0.0" width="81" height="28"/>
                                                     <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="24"/>
-                                                    <color key="textColor" red="0.22911491990089417" green="0.36905968189239502" blue="0.54345977306365967" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -216,10 +216,10 @@
                                 <rect key="frame" x="39.5" y="104" width="335" height="634"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohv-Rr-j2u">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="280"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="275"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBN-XM-VWR">
-                                                <rect key="frame" x="20" y="20" width="295" height="240"/>
+                                                <rect key="frame" x="20" y="20" width="295" height="235"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -231,7 +231,7 @@
                                             <constraint firstAttribute="bottom" secondItem="qBN-XM-VWR" secondAttribute="bottom" constant="20" id="dOf-NH-07z"/>
                                             <constraint firstAttribute="trailing" secondItem="qBN-XM-VWR" secondAttribute="trailing" constant="20" id="myS-yD-bP4"/>
                                             <constraint firstItem="qBN-XM-VWR" firstAttribute="top" secondItem="ohv-Rr-j2u" secondAttribute="top" constant="20" id="wjL-Wg-3Gs"/>
-                                            <constraint firstAttribute="height" constant="280" id="zeD-LM-nim"/>
+                                            <constraint firstAttribute="height" constant="275" id="zeD-LM-nim"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71R-7G-IJa">
@@ -246,7 +246,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="270" id="EhK-Xp-7K0"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
