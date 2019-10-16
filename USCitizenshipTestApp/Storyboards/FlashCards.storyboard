@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -76,14 +75,6 @@
                                     <outlet property="questionNumberLabel" destination="UeH-rj-xB4" id="zn4-Co-hks"/>
                                     <segue destination="LBG-Kr-ayf" kind="presentation" identifier="ShowDetail" id="BYW-Aj-Mf7"/>
                                 </connections>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hfX-Mv-JsY">
-                                <rect key="frame" x="228" y="133" width="168" height="168"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="62D-PP-0If">
-                                    <rect key="frame" x="0.0" y="0.0" width="168" height="168"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeader" id="cTv-nf-y9N" customClass="SectionHeader" customModule="USCitizenshipTestApp" customModuleProvider="target">
