@@ -11,7 +11,6 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    
     //MARK: Outlets and properties
     @IBOutlet weak var questionView: UIView!
     @IBOutlet weak var questionLabel: UILabel!
@@ -73,6 +72,7 @@ class DetailViewController: UIViewController {
             }
         }
     }
+    
     //updateTheme
     private func updateTheme() {
         let userDefaults = UserDefaults.standard

@@ -17,8 +17,6 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var questionNumberLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 14
