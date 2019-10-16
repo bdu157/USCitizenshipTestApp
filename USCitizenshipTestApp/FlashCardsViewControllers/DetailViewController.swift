@@ -79,6 +79,7 @@ class DetailViewController: UIViewController {
         if userDefaults.bool(forKey: .shouldShowWhiteTheme) == true {
             let mainColorBlue = #colorLiteral(red: 0.1651235223, green: 0.3135112226, blue: 0.5044639707, alpha: 1)
             self.answerLabel.textColor = mainColorBlue
+            self.textView.textColor = mainColorBlue
             self.seeAnswerButton.setTitleColor(mainColorBlue, for: .normal)
             self.view.backgroundColor = .white
             self.card.layer.borderColor = CGColor.init(srgbRed: 0.1651235223, green: 0.3135112226, blue: 0.5044639707, alpha: 1)
